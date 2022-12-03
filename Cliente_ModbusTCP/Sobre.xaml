@@ -13,7 +13,7 @@
     <Grid>
         <StackPanel Margin="5">
             <!-- Icono UDeusto -->
-            <Image Source="/UDeusto_Icono.png" Width="100" Height="100" HorizontalAlignment="Center"/>
+            <Image Source="/Imagenes/UDeusto_Icono.png" Width="100" Height="100" HorizontalAlignment="Center"/>
         </StackPanel>
 
         <!-- MUAECI -->
