@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Cliente_ModbusTCP"
         mc:Ignorable="d"
+        SizeToContent="WidthAndHeight"
         WindowStartupLocation="CenterScreen"
-        Title="Cliente Modbus/TCP (TLS)" Height="450" Width="800">
+        Title="Cliente Modbus/TCP (TLS)">
     <Grid>
         <!-- Logo Modbus -->
         <Image Source="/Imagenes/Modbus_Logo.png" Width="200" Margin="579,30,21,346"/>
@@ -14,19 +15,32 @@
         <!-- Conexión -->
         <Label x:Name="lb_Dispositivo" Content="Dispositivo:" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
         <Label x:Name="lb_Nombre" HorizontalAlignment="Left" Margin="75,42,0,0" VerticalAlignment="Top" FontSize="10"/>
-        
+
         <Label Content="Diercción IP:" HorizontalAlignment="Left" Margin="154,40,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tb_DireccionIP" HorizontalAlignment="Left" Margin="236,44,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="80"/>
+        <TextBox x:Name="tb_DireccionIP" HorizontalAlignment="Left" Margin="229,44,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="80"/>
 
         <Label Content="Puerto:" HorizontalAlignment="Left" Margin="328,40,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tb_Puerto" HorizontalAlignment="Center" Margin="0,44,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="40"/>
+        <TextBox x:Name="tb_Puerto" HorizontalAlignment="Left" Margin="376,44,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="40"/>
 
         <!-- Certificados -->
-        <Label Content="Certif. servidor (SAN):" HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tb_CertifServ" HorizontalAlignment="Left" Margin="160,74,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="400"/>
+        <Label Content="Seguridad" FontSize="18" FontFamily="Segoe UI Black" Margin="10,70,650,330"/>
+        
+        <Label Content="Certif. servidor (SAN):" HorizontalAlignment="Left" Margin="10,100,0,0" VerticalAlignment="Top" Width="130"/>
+        <TextBox x:Name="tb_CertifServ" HorizontalAlignment="Left" Margin="160,104,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="400"/>
 
-        <Label Content="Certif. cliente (Sujeto DN):" HorizontalAlignment="Left" Margin="10,100,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tb_CertifClie" HorizontalAlignment="Left" Margin="160,104,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="400"/>
+        <Label Content="Certif. cliente (Sujeto DN):" HorizontalAlignment="Left" Margin="10,130,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tb_CertifClie" HorizontalAlignment="Left" Margin="160,134,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="400"/>
+
+        <!-- Petición -->
+        <Label Content="Petición" FontSize="18" FontFamily="Segoe UI Black" Margin="10,160,700,240"/>
+
+        <Label Content="Primer elemento:" HorizontalAlignment="Left" Margin="10,190,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tb_PrimeraSalida" HorizontalAlignment="Left" Margin="110,194,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="40"/>
+
+        <Label Content="Nº elementos:" HorizontalAlignment="Left" Margin="165,190,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tb_NumElementos" HorizontalAlignment="Left" Margin="250,194,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="40"/>
+
+        <Label Content="Valor:" HorizontalAlignment="Left" Margin="305,190,0,0" VerticalAlignment="Top"/>
 
         <!-- Botones -->
         <Button x:Name="btn_Peticion" Content="Petición" HorizontalAlignment="Left" Margin="660,380,0,0" VerticalAlignment="Top" IsEnabled="False" Click="btn_Peticion_Click"  Width="55"/>

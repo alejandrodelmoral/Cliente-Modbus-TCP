@@ -102,7 +102,10 @@ namespace Cliente_ModbusTCP
 
         private void btn_Peticion_Click(object sender, RoutedEventArgs e)
         {
-
+            if (cliente != null)
+            {
+                ushort primeraSalida = Convert.ToUInt16(tb_PrimeraSalida);
+            }
         }
 
         private void Salir_Click(object sender, RoutedEventArgs e)
