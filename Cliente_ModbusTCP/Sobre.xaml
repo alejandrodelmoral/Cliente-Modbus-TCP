@@ -5,11 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Cliente_ModbusTCP"
         mc:Ignorable="d"
-        ResizeMode="NoResize"
+        SizeToContent="WidthAndHeight"
         WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
         ShowInTaskbar="False"
-        Title="Sobre..." Height="450" Width="800">
+        Title="Sobre...">
     <Grid>
-        
+        <StackPanel Margin="5">
+            <!-- Icono UDeusto -->
+            <Image Source="/UDeusto_Icono.png" Width="100" Height="100" HorizontalAlignment="Center"/>
+        </StackPanel>
+
+        <!-- MUAECI -->
+        <Label Content="Máster Universitario en Automatización," FontSize="18" FontFamily="Segoe UI Black" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Label Content="Electrónica y Control Industial" FontSize="18" FontFamily="Segoe UI Black" HorizontalAlignment="Center" Margin="0,119,0,0" VerticalAlignment="Top"/>
+
+        <!-- Asignatura -->
+        <Label Content="Redes de Comunicación Industriales" FontSize="14" HorizontalAlignment="Center" Margin="0,151,0,0" VerticalAlignment="Top"/>
+
+        <!-- Curso -->
+        <Label Content="2022 / 2023" HorizontalAlignment="Center" Margin="0,177,0,0" VerticalAlignment="Top"/>
+
+        <!-- Nombre -->
+        <Label Content="Alejandro del Moral Lapresta" FontSize="14" FontFamily="Segoe UI Black" HorizontalAlignment="Center" Margin="0,199,0,0" VerticalAlignment="Top"/>
+
     </Grid>
 </Window>

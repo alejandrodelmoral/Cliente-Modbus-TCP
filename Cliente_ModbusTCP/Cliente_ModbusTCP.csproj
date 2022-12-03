@@ -102,7 +102,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="UDeusto_Icono.png" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Imagenes\Modbus_Logo.png" />
   </ItemGroup>

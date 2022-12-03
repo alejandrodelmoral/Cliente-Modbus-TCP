@@ -65,7 +65,8 @@ namespace Cliente_ModbusTCP
         /*-- Menú Ayuda --*/
         private void Sobre_Click(object sender, RoutedEventArgs e)
         {
-
+            Sobre sobre = new Sobre();
+            sobre.Show();
         }
         /*----------------*/
         
@@ -158,8 +159,8 @@ namespace Cliente_ModbusTCP
                             for (int j = 0; j < maxBits; j++)
                             {
                                 elemento = new datosGrid();
-                                elemento.n = k++;
-                                elemento.estado = temp[j];
+                                elemento.Elemento = k++;
+                                elemento.Estado = temp[j];
                                 lista.Add(elemento);
                             }
                         }
@@ -208,8 +209,8 @@ namespace Cliente_ModbusTCP
 
     public class datosGrid
     {
-        public int n { get; set; }
-        public bool estado { get; set; }
+        public int Elemento { get; set; }
+        public bool Estado { get; set; }
     }
 
 }

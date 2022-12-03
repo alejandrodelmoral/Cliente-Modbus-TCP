@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("modbus_logo.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("udeusto_icono.png")]
 
 
