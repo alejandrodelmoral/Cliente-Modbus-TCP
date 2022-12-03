@@ -20,6 +20,7 @@ namespace Cliente_ModbusTCP
     {
         Cliente cliente = null;
         bool conectado = false;
+        ushort num_Mensaje = 0;
 
         public MainWindow()
         {
@@ -104,8 +105,71 @@ namespace Cliente_ModbusTCP
         {
             if (cliente != null)
             {
-                ushort primeraSalida = (ushort)(Convert.ToUInt16(tb_PrimeraSalida) - 1);
+                ushort primera_Salida = (ushort)(Convert.ToUInt16(tb_PrimeraSalida.Text) - 1);
+                ushort num_Salidas = Convert.ToUInt16(tb_NumElementos.Text);
+                int nBytesEnterosSalidas = num_Salidas / 8;
+                int nBytesIncompletosSalidas = num_Salidas % 8 > 0 ? 1 : 0;
+                int nBytesSalidas = nBytesEnterosSalidas + nBytesIncompletosSalidas;
+
+                byte[] peticion = new byte[12];
+                byte[] respuesta = new byte[256];
+                byte[] parcial;
+
+                parcial = BitConverter.GetBytes(num_Mensaje);
+                Array.Copy(parcial, 0, peticion, 0, 2);
+                peticion[2] = peticion[3] = 0;
+                parcial = BitConverter.GetBytes((ushort)6);
+                Array.Reverse(parcial, 0, 2);
+                Array.Copy(parcial, 0, peticion, 4, 2);
+
+                peticion[6] = 22;
+                peticion[7] = 1;
+                parcial = BitConverter.GetBytes(primera_Salida);
+                Array.Reverse(parcial, 0, 2);
+                Array.Copy(parcial, 0, peticion, 8, 2);
+                parcial = BitConverter.GetBytes(num_Salidas);
+                Array.Reverse(parcial, 0, 2);
+                Array.Copy(parcial, 0, peticion, 10, 2);
+
+                int res = cliente.enviaDatos(peticion, 12);
+
+                if (res == 12)
+                {
+                    res = cliente.recibeDatos(respuesta, respuesta.Length);
+
+                    if (res == nBytesSalidas + 9)
+                    {
+                        List<datosGrid> lista = new List<datosGrid>();
+                        datosGrid elemento;
+                        bool[] temp;
+
+                        int k = primera_Salida + 1;
+                        int maxBits;
+
+                        for (int i = 0; i < respuesta[8]; i++)
+                        {
+                            temp = extraeBits(respuesta[9 + i], 8);
+
+                            if (i < nBytesEnterosSalidas)
+                                maxBits = 8;
+                            else
+                                maxBits = num_Salidas % 8;
+
+                            for (int j = 0; j < maxBits; j++)
+                            {
+                                elemento = new datosGrid();
+                                elemento.n = k++;
+                                elemento.estado = temp[j];
+                                lista.Add(elemento);
+                            }
+                        }
+
+                        dg_Salidas.ItemsSource = lista;
+                    }
+                }
             }
+
+            return;
         }
 
         private void Salir_Click(object sender, RoutedEventArgs e)
@@ -119,5 +183,33 @@ namespace Cliente_ModbusTCP
         }
         /*-------------*/
 
+        private bool[] extraeBits(byte valor, int n)
+        {
+            bool[] solucion = new bool[8];
+            byte mascara = 0x01;
+
+            for (int i = 0; i < n; i++)
+            {
+                if ((valor & mascara) != 0)
+                    solucion[i] = true;
+                else
+                    solucion[i] = false;
+
+                mascara = (byte)(mascara << 1);
+            }
+
+            for (int i = n; i < 8; i++)
+                solucion[i] = false;
+
+            return solucion;
+        }
+
     }
+
+    public class datosGrid
+    {
+        public int n { get; set; }
+        public bool estado { get; set; }
+    }
+
 }

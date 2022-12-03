@@ -24,7 +24,7 @@
 
         <!-- Certificados -->
         <Label Content="Seguridad" FontSize="18" FontFamily="Segoe UI Black" Margin="10,70,650,330"/>
-        
+
         <Label Content="Certif. servidor (SAN):" HorizontalAlignment="Left" Margin="10,100,0,0" VerticalAlignment="Top" Width="130"/>
         <TextBox x:Name="tb_CertifServ" HorizontalAlignment="Left" Margin="160,104,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="400"/>
 
@@ -41,6 +41,9 @@
         <TextBox x:Name="tb_NumElementos" HorizontalAlignment="Left" Margin="250,194,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="40"/>
 
         <Label Content="Valor:" HorizontalAlignment="Left" Margin="305,190,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="cb_Valor" Content="ON / OFF" HorizontalAlignment="Left" Margin="345,196,0,0" VerticalAlignment="Top"/>
+
+        <DataGrid x:Name="dg_Salidas"  Margin="16,217,385,96" VerticalScrollBarVisibility="Auto"/>
 
         <!-- Botones -->
         <Button x:Name="btn_Peticion" Content="Petición" HorizontalAlignment="Left" Margin="660,380,0,0" VerticalAlignment="Top" IsEnabled="False" Click="btn_Peticion_Click"  Width="55"/>
