@@ -104,7 +104,7 @@ namespace Cliente_ModbusTCP
         {
             if (cliente != null)
             {
-                ushort primeraSalida = Convert.ToUInt16(tb_PrimeraSalida);
+                ushort primeraSalida = (ushort)(Convert.ToUInt16(tb_PrimeraSalida) - 1);
             }
         }
 
