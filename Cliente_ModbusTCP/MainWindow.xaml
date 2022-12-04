@@ -5,52 +5,56 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Cliente_ModbusTCP"
         mc:Ignorable="d"
-        SizeToContent="WidthAndHeight"
         WindowStartupLocation="CenterScreen"
-        Title="Cliente Modbus/TCP (TLS)">
+        Title="Cliente Modbus/TCP (TLS)" Height="470" Width="800">
     <Grid>
         <!-- Logo Modbus -->
-        <Image Source="/Imagenes/Modbus_Logo.png" Width="200" HorizontalAlignment="Left" Margin="570,25,0,0" VerticalAlignment="Top"/>
+        <Image Source="/Imagenes/Modbus_Logo.png" Width="200" HorizontalAlignment="Left" Margin="570,30,0,0" VerticalAlignment="Top"/>
 
         <!-- Conexión -->
-        <Label x:Name="lb_Dispositivo" Content="Dispositivo:" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
-        <Label x:Name="lb_Nombre" HorizontalAlignment="Left" Margin="75,42,0,0" VerticalAlignment="Top" FontSize="10"/>
+        <Label Content="Conexión" FontSize="18" FontFamily="Segoe UI Black" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top"/>
 
-        <Label Content="Diercción IP:" HorizontalAlignment="Left" Margin="154,40,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tb_DireccionIP" HorizontalAlignment="Left" Margin="229,44,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="80"/>
+        <Label x:Name="lb_Nombre" HorizontalAlignment="Left" Margin="280,60,0,0" VerticalAlignment="Top">
+            <Label.Foreground>
+                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.GrayTextColorKey}}"/>
+            </Label.Foreground>
+        </Label>
 
-        <Label Content="Puerto:" HorizontalAlignment="Left" Margin="328,40,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tb_Puerto" HorizontalAlignment="Left" Margin="376,44,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="40"/>
+        <Label Content="Diercción IP:" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tb_DireccionIP" HorizontalAlignment="Left" Margin="85,64,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="80"/>
+
+        <Label Content="Puerto:" HorizontalAlignment="Left" Margin="180,60,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tb_Puerto" HorizontalAlignment="Left" Margin="228,64,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="40"/>
 
         <!-- Certificados -->
-        <Label Content="Seguridad" FontSize="18" FontFamily="Segoe UI Black" HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top"/>
+        <Label Content="Seguridad" FontSize="18" FontFamily="Segoe UI Black" HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top"/>
 
-        <Label Content="Certif. servidor (SAN):" HorizontalAlignment="Left" Margin="10,100,0,0" VerticalAlignment="Top" Width="130"/>
-        <TextBox x:Name="tb_CertifServ" HorizontalAlignment="Left" Margin="160,104,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="400"/>
+        <Label Content="Certif. servidor (SAN):" HorizontalAlignment="Left" Margin="10,120,0,0" VerticalAlignment="Top" Width="130"/>
+        <TextBox x:Name="tb_CertifServ" HorizontalAlignment="Left" Margin="160,124,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="400"/>
 
-        <Label Content="Certif. cliente (Sujeto DN):" HorizontalAlignment="Left" Margin="10,130,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tb_CertifClie" HorizontalAlignment="Left" Margin="160,134,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="400"/>
+        <Label Content="Certif. cliente (Sujeto DN):" HorizontalAlignment="Left" Margin="10,150,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tb_CertifClie" HorizontalAlignment="Left" Margin="160,154,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="400"/>
 
         <!-- Petición -->
-        <Label Content="Petición" FontSize="18" FontFamily="Segoe UI Black" HorizontalAlignment="Left" Margin="10,160,0,0" VerticalAlignment="Top"/>
+        <Label Content="Petición" FontSize="18" FontFamily="Segoe UI Black" HorizontalAlignment="Left" Margin="10,180,0,0" VerticalAlignment="Top"/>
 
-        <Label Content="Primer elemento:" HorizontalAlignment="Left" Margin="10,190,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tb_PrimeraSalida" HorizontalAlignment="Left" Margin="110,194,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="40"/>
+        <Label Content="Primer elemento:" HorizontalAlignment="Left" Margin="10,210,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tb_PrimeraSalida" HorizontalAlignment="Left" Margin="110,214,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="40"/>
 
-        <Label Content="Nº elementos:" HorizontalAlignment="Left" Margin="165,190,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tb_NumElementos" HorizontalAlignment="Left" Margin="250,194,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="40"/>
+        <Label Content="Nº elementos:" HorizontalAlignment="Left" Margin="165,210,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tb_NumElementos" HorizontalAlignment="Left" Margin="250,214,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="40"/>
 
-        <Label Content="Valor:" HorizontalAlignment="Left" Margin="305,190,0,0" VerticalAlignment="Top"/>
-        <CheckBox x:Name="cb_Valor" Content="ON / OFF" HorizontalAlignment="Left" Margin="345,196,0,0" VerticalAlignment="Top"/>
+        <Label Content="Valor:" HorizontalAlignment="Left" Margin="305,210,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="cb_Valor" Content="ON / OFF" HorizontalAlignment="Left" Margin="345,216,0,0" VerticalAlignment="Top"/>
 
-        <DataGrid x:Name="dg_Salidas"  HorizontalAlignment="Left" Margin="16,220,0,0" VerticalAlignment="Top" VerticalScrollBarVisibility="Auto" Width="399" Height="179.76" MaxWidth="399" MaxHeight="179.76"/>
+        <DataGrid x:Name="dg_Salidas"  HorizontalAlignment="Left" Margin="16,240,0,0" VerticalAlignment="Top" VerticalScrollBarVisibility="Auto" Width="399" Height="179.76" MaxWidth="399" MaxHeight="179.76"/>
 
         <!-- Botones -->
-        <Button x:Name="btn_Peticion" Content="Petición" HorizontalAlignment="Left" Margin="660,380,0,0" VerticalAlignment="Top" IsEnabled="False" Click="btn_Peticion_Click"  Width="55"/>
+        <Button x:Name="btn_Peticion" Content="Petición" HorizontalAlignment="Left" Margin="660,400,0,0" VerticalAlignment="Top" IsEnabled="False" Click="btn_Peticion_Click"  Width="55"/>
 
-        <Button x:Name="btn_Conectar" Content="Conectar" HorizontalAlignment="Left" Margin="580,380,0,0" VerticalAlignment="Top" Click="btn_Conectar_Click"  Width="75" Background="Lime"/>
+        <Button x:Name="btn_Conectar" Content="Conectar" HorizontalAlignment="Left" Margin="580,400,0,0" VerticalAlignment="Top" Click="btn_Conectar_Click"  Width="75" Background="Lime"/>
 
-        <Button x:Name="btn_Salir" Content="Salir" HorizontalAlignment="Left" Margin="720,380,0,0" VerticalAlignment="Top" Click="Salir_Click" Width="50"/>
+        <Button x:Name="btn_Salir" Content="Salir" HorizontalAlignment="Left" Margin="720,400,0,0" VerticalAlignment="Top" Click="Salir_Click" Width="50"/>
 
         <!-- Barra de menú -->
         <StackPanel VerticalAlignment="Top">
@@ -65,8 +69,8 @@
                     <MenuItem x:Name="Pegar" Header="_Pegar" Command="Paste"/>
                     <MenuItem x:Name="Cortar" Header="C_ortar" Command="Cut"/>
                 </MenuItem>
-                <!-- Menú Dispositivos -->
-                <MenuItem Header="_Dispositivos">
+                <!-- Menú Servidores -->
+                <MenuItem Header="_Servidores">
                     <MenuItem x:Name="Yo" Header="_Yo" Click="Yo_Click"/>
                     <MenuItem x:Name="PC_13" Header="_PC 13 - Lab. 019" Click="PC_13_Click"/>
                     <Separator/>
@@ -74,6 +78,10 @@
                 </MenuItem>
                 <!-- Menú Funciones -->
                 <MenuItem Header="_Funciones">
+                    <MenuItem x:Name="Func_1" Header="_1 - Lectura de salidas discretas" IsCheckable="True"/>
+                    <MenuItem x:Name="Func_3" Header="_3 - Lectura de registros internos" IsCheckable="True"/>
+                    <MenuItem x:Name="Func_5" Header="_5 - Modificación del estado de una salida discreta" IsCheckable="True"/>
+                    <MenuItem x:Name="Func_16" Header="1_6 - Modificar el valor de registros internos" IsCheckable="True"/>
                 </MenuItem>
                 <!-- Menú Ayuda -->
                 <MenuItem Header="_Ayuda">
