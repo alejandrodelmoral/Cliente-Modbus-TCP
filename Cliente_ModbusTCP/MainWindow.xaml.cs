@@ -330,10 +330,6 @@ namespace Cliente_ModbusTCP
                 if (Func_5.IsChecked == true)
                 {
                     ushort primera_Salida = (ushort)(Convert.ToUInt16(tb_PrimeraSalida.Text) - 1);
-                    ushort num_Salidas = Convert.ToUInt16(tb_NumElementos.Text);
-                    int nBytesEnterosSalidas = num_Salidas / 8;
-                    int nBytesIncompletosSalidas = num_Salidas % 8 > 0 ? 1 : 0;
-                    int nBytesSalidas = nBytesEnterosSalidas + nBytesIncompletosSalidas;
 
                     byte[] peticion = new byte[12];
                     byte[] respuesta = new byte[256];
@@ -351,9 +347,13 @@ namespace Cliente_ModbusTCP
                     parcial = BitConverter.GetBytes(primera_Salida);
                     Array.Reverse(parcial, 0, 2);
                     Array.Copy(parcial, 0, peticion, 8, 2);
-                    parcial = BitConverter.GetBytes(num_Salidas);
-                    Array.Reverse(parcial, 0, 2);
-                    Array.Copy(parcial, 0, peticion, 10, 2);
+
+                    if (cb_Valor.IsChecked == true)
+                        peticion[10] = 0xFF;
+                    else
+                        peticion[10] = 0;
+
+                    peticion[11] = 0;
 
                     int res = cliente.enviaDatos(peticion, peticion.Length);
 
@@ -361,34 +361,19 @@ namespace Cliente_ModbusTCP
                     {
                         res = cliente.recibeDatos(respuesta, respuesta.Length);
 
-                        if (res == nBytesSalidas + 9)
+                        if (res == 12)
                         {
                             List<datosGrid> lista = new List<datosGrid>();
                             datosGrid elemento;
                             bool[] temp;
 
-                            int k = primera_Salida + 1;
-                            int maxBits;
-
-                            for (int i = 0; i < respuesta[8]; i++)
-                            {
-                                temp = extraeBits(respuesta[9 + i], 8);
-
-                                if (i < nBytesEnterosSalidas)
-                                    maxBits = 8;
-                                else
-                                    maxBits = num_Salidas % 8;
-
-                                for (int j = 0; j < maxBits; j++)
-                                {
-                                    elemento = new datosGrid();
-                                    elemento.Elemento = k++;
-                                    elemento.Estado = temp[j];
-                                    lista.Add(elemento);
-                                }
-                            }
+                            elemento = new datosGrid();
+                            elemento.Elemento = primera_Salida + 1;
+                            elemento.Estado = BitConverter.ToBoolean(respuesta, 10);
+                            lista.Add(elemento);
 
                             dg_Salidas.ItemsSource = lista;
+
                         }
                     }
                 }

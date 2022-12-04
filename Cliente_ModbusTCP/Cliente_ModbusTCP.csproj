@@ -35,7 +35,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Cliente_ModbusTCP_Icono.ico</ApplicationIcon>
+    <ApplicationIcon>Imagenes\Cliente_ModbusTCP_Icono.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -113,9 +113,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Imagenes\Cliente_ModbusTCP_Icono.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Cliente_ModbusTCP_Icono.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
