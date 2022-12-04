@@ -38,14 +38,20 @@
         <!-- Petición -->
         <Label Content="Petición" FontSize="18" FontFamily="Segoe UI Black" HorizontalAlignment="Left" Margin="10,180,0,0" VerticalAlignment="Top"/>
 
+        <Label x:Name="lb_Funcion" HorizontalAlignment="Left" Margin="92,186,0,0" VerticalAlignment="Top">
+            <Label.Foreground>
+                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.GrayTextColorKey}}"/>
+            </Label.Foreground>
+        </Label>
+
         <Label Content="Primer elemento:" HorizontalAlignment="Left" Margin="10,210,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="tb_PrimeraSalida" HorizontalAlignment="Left" Margin="110,214,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="40"/>
 
         <Label Content="Nº elementos:" HorizontalAlignment="Left" Margin="165,210,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="tb_NumElementos" HorizontalAlignment="Left" Margin="250,214,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="40"/>
 
-        <Label Content="Valor:" HorizontalAlignment="Left" Margin="305,210,0,0" VerticalAlignment="Top"/>
-        <CheckBox x:Name="cb_Valor" Content="ON / OFF" HorizontalAlignment="Left" Margin="345,216,0,0" VerticalAlignment="Top"/>
+        <Label Content="Valor:" HorizontalAlignment="Left" Margin="305,210,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
+        <CheckBox x:Name="cb_Valor" Content="ON / OFF" HorizontalAlignment="Left" Margin="345,216,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
 
         <DataGrid x:Name="dg_Salidas"  HorizontalAlignment="Left" Margin="16,240,0,0" VerticalAlignment="Top" VerticalScrollBarVisibility="Auto" Width="399" Height="179.76" MaxWidth="399" MaxHeight="179.76"/>
 
@@ -55,6 +61,11 @@
         <Button x:Name="btn_Conectar" Content="Conectar" HorizontalAlignment="Left" Margin="580,400,0,0" VerticalAlignment="Top" Click="btn_Conectar_Click"  Width="75" Background="Lime"/>
 
         <Button x:Name="btn_Salir" Content="Salir" HorizontalAlignment="Left" Margin="720,400,0,0" VerticalAlignment="Top" Click="Salir_Click" Width="50"/>
+
+        <!-- Funciones -->
+        <RadioButton x:Name="rb_Func1" Content="1" HorizontalAlignment="Left" Margin="440,240,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rb_Func3" Content="3" HorizontalAlignment="Left" Margin="440,260,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rb_Func5" Content="5" HorizontalAlignment="Left" Margin="440,280,0,0" VerticalAlignment="Top"/>
 
         <!-- Barra de menú -->
         <StackPanel VerticalAlignment="Top">

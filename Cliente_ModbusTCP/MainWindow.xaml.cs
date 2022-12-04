@@ -107,11 +107,13 @@ namespace Cliente_ModbusTCP
         {
             if (cliente != null)
             {
-                if (Func_1.IsChecked)
+                if (Func_1.IsChecked == true || rb_Func1.IsChecked == true)
                 {
                     Func_3.IsChecked = false;
                     Func_5.IsChecked = false;
                     Func_16.IsChecked = false;
+
+                    lb_Funcion.Content = "(1 - Lectura de salidas discretas)";
 
                     ushort primera_Salida = (ushort)(Convert.ToUInt16(tb_PrimeraSalida.Text) - 1);
                     ushort num_Salidas = Convert.ToUInt16(tb_NumElementos.Text);
@@ -177,11 +179,13 @@ namespace Cliente_ModbusTCP
                     }
                 }
 
-                if (Func_3.IsChecked)
+                if (Func_3.IsChecked == true || rb_Func3.IsChecked == true)
                 {
                     Func_1.IsChecked = false;
                     Func_5.IsChecked = false;
                     Func_16.IsChecked = false;
+
+                    lb_Funcion.Content = "(3 - Lectura de registros internos)";
 
                     ushort primera_Salida = (ushort)(Convert.ToUInt16(tb_PrimeraSalida.Text) - 40001);
                     ushort num_Salidas = Convert.ToUInt16(tb_NumElementos.Text);
@@ -222,6 +226,18 @@ namespace Cliente_ModbusTCP
 
                             int k = primera_Salida + 1;
                             int maxBits;
+                            //int cont = 0;
+                            byte[] aux = new byte[2];
+
+                            for (int i = 0; i < respuesta[8] / 2; i++)
+                            {
+                                aux[0] = respuesta[(i * 2) + 9];
+                                aux[1] = respuesta[(i * 2) + 10];
+                                
+                                Array.Reverse(aux, 0, 2);
+                                Array.Copy(aux, 0, respuesta, 9 + (i * 2), 2);
+                                //cont += 2;
+                            }
 
                             for (int i = 0; i < respuesta[8]; i++)
                             {
@@ -246,11 +262,13 @@ namespace Cliente_ModbusTCP
                     }
                 }
 
-                if (Func_5.IsChecked)
+                if (Func_5.IsChecked == true || rb_Func5.IsChecked == true)
                 {
                     Func_1.IsChecked = false;
                     Func_3.IsChecked = false;
                     Func_16.IsChecked = false;
+
+                    lb_Funcion.Content = "(5 - Modificación del estado de una salida discreta)";
 
                     ushort primera_Salida = (ushort)(Convert.ToUInt16(tb_PrimeraSalida.Text) - 1);
                     ushort num_Salidas = Convert.ToUInt16(tb_NumElementos.Text);
