@@ -44,13 +44,13 @@
             </Label.Foreground>
         </Label>
 
-        <Label Content="Primer elemento:" HorizontalAlignment="Left" Margin="10,210,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lb_Elemento1" Content="Primer elemento:" HorizontalAlignment="Left" Margin="10,210,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="tb_PrimeraSalida" HorizontalAlignment="Left" Margin="110,214,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="40"/>
 
-        <Label Content="Nº elementos:" HorizontalAlignment="Left" Margin="165,210,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lb_Elementos" Content="Nº elementos:" HorizontalAlignment="Left" Margin="165,210,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="tb_NumElementos" HorizontalAlignment="Left" Margin="250,214,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="40"/>
 
-        <Label Content="Valor:" HorizontalAlignment="Left" Margin="305,210,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
+        <Label x:Name="lb_Valor" Content="Valor:" HorizontalAlignment="Left" Margin="305,210,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
         <CheckBox x:Name="cb_Valor" Content="ON / OFF" HorizontalAlignment="Left" Margin="345,216,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
 
         <DataGrid x:Name="dg_Salidas"  HorizontalAlignment="Left" Margin="16,240,0,0" VerticalAlignment="Top" VerticalScrollBarVisibility="Auto" Width="399" Height="179.76" MaxWidth="399" MaxHeight="179.76"/>
@@ -61,11 +61,6 @@
         <Button x:Name="btn_Conectar" Content="Conectar" HorizontalAlignment="Left" Margin="580,400,0,0" VerticalAlignment="Top" Click="btn_Conectar_Click"  Width="75" Background="Lime"/>
 
         <Button x:Name="btn_Salir" Content="Salir" HorizontalAlignment="Left" Margin="720,400,0,0" VerticalAlignment="Top" Click="Salir_Click" Width="50"/>
-
-        <!-- Funciones -->
-        <RadioButton x:Name="rb_Func1" Content="1" HorizontalAlignment="Left" Margin="440,240,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="rb_Func3" Content="3" HorizontalAlignment="Left" Margin="440,260,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="rb_Func5" Content="5" HorizontalAlignment="Left" Margin="440,280,0,0" VerticalAlignment="Top"/>
 
         <!-- Barra de menú -->
         <StackPanel VerticalAlignment="Top">
@@ -89,10 +84,10 @@
                 </MenuItem>
                 <!-- Menú Funciones -->
                 <MenuItem Header="_Funciones">
-                    <MenuItem x:Name="Func_1" Header="_1 - Lectura de salidas discretas" IsCheckable="True"/>
-                    <MenuItem x:Name="Func_3" Header="_3 - Lectura de registros internos" IsCheckable="True"/>
-                    <MenuItem x:Name="Func_5" Header="_5 - Modificación del estado de una salida discreta" IsCheckable="True"/>
-                    <MenuItem x:Name="Func_16" Header="1_6 - Modificar el valor de registros internos" IsCheckable="True"/>
+                    <MenuItem x:Name="Func_1" Header="_1 - Lectura de salidas discretas" Click="Func_1_Click"/>
+                    <MenuItem x:Name="Func_3" Header="_3 - Lectura de registros internos" Click="Func_3_Click"/>
+                    <MenuItem x:Name="Func_5" Header="_5 - Modificación del estado de una salida discreta" Click="Func_5_Click"/>
+                    <MenuItem x:Name="Func_16" Header="1_6 - Modificar el valor de registros internos" Click="Func_16_Click"/>
                 </MenuItem>
                 <!-- Menú Ayuda -->
                 <MenuItem Header="_Ayuda">

@@ -27,7 +27,7 @@ namespace Cliente_ModbusTCP
             InitializeComponent();
         }
 
-        /*-- Menú Dispositivos --*/
+        /*-- Menú Servidores --*/
         private void Yo_Click(object sender, RoutedEventArgs e)
         {
             tb_DireccionIP.Text = "127.0.0.1";
@@ -54,7 +54,84 @@ namespace Cliente_ModbusTCP
             tb_Puerto.IsEnabled = true;
             return;
         }
-        /*-----------------------*/
+        /*---------------------*/
+
+        /*-- Menú Funciones --*/
+        private void Func_1_Click(object sender, RoutedEventArgs e)
+        {
+            lb_Funcion.Content = "(1 - Lectura de salidas discretas)";
+            lb_Elemento1.Content = "Primer elemento:";
+            lb_Elementos.Content = "Nº elementos:";
+
+            tb_PrimeraSalida.Margin = new Thickness(110, 214, 0, 0);
+            lb_Elementos.Margin = new Thickness(165, 210, 0, 0);
+            tb_NumElementos.Margin = new Thickness(250, 214, 0, 0);
+
+            lb_Elementos.Visibility = Visibility.Visible;
+            tb_NumElementos.Visibility = Visibility.Visible;
+            lb_Valor.Visibility = Visibility.Hidden;
+            cb_Valor.Visibility = Visibility.Hidden;
+
+            Func_1.IsChecked = true;
+            Func_3.IsChecked = false;
+            Func_5.IsChecked = false;
+            Func_16.IsChecked = false;
+        }
+
+        private void Func_3_Click(object sender, RoutedEventArgs e)
+        {
+            lb_Funcion.Content = "(3 - Lectura de registros internos)";
+            lb_Elemento1.Content = "Primer registro:";
+            lb_Elementos.Content = "Nº registros:";
+
+            tb_PrimeraSalida.Margin = new Thickness(101, 214, 0, 0);
+            lb_Elementos.Margin = new Thickness(165, 210, 0, 0);
+            tb_NumElementos.Margin = new Thickness(241, 214, 0, 0);
+
+            lb_Elementos.Visibility = Visibility.Visible;
+            tb_NumElementos.Visibility = Visibility.Visible;
+            lb_Valor.Visibility = Visibility.Hidden;
+            cb_Valor.Visibility = Visibility.Hidden;
+
+            Func_1.IsChecked = false;
+            Func_3.IsChecked = true;
+            Func_5.IsChecked = false;
+            Func_16.IsChecked = false;
+        }
+
+        private void Func_5_Click(object sender, RoutedEventArgs e)
+        {
+            lb_Funcion.Content = "(5 - Modificación del estado de una salida discreta)";
+            lb_Elemento1.Content = "Salida a forzar:";
+
+            tb_PrimeraSalida.Margin = new Thickness(97, 214, 0, 0);
+            lb_Valor.Margin = new Thickness(165, 210, 0, 0);
+            cb_Valor.Margin = new Thickness(205, 216, 0, 0);
+
+            lb_Elementos.Visibility = Visibility.Hidden;
+            tb_NumElementos.Visibility = Visibility.Hidden;
+            lb_Valor.Visibility = Visibility.Visible;
+            cb_Valor.Visibility = Visibility.Visible;
+
+            Func_1.IsChecked = false;
+            Func_3.IsChecked = false;
+            Func_5.IsChecked = true;
+            Func_16.IsChecked = false;
+        }
+
+        private void Func_16_Click(object sender, RoutedEventArgs e)
+        {
+            lb_Funcion.Content = "(16 - Modificar el valor de registros internos)";
+
+            Func_1.IsChecked = false;
+            Func_3.IsChecked = false;
+            Func_5.IsChecked = false;
+            Func_16.IsChecked = true;
+
+            lb_Valor.Visibility = Visibility.Visible;
+            cb_Valor.Visibility = Visibility.Visible;
+        }
+        /*--------------------*/
 
         /*-- Menú Ayuda --*/
         private void Sobre_Click(object sender, RoutedEventArgs e)
@@ -107,14 +184,8 @@ namespace Cliente_ModbusTCP
         {
             if (cliente != null)
             {
-                if (Func_1.IsChecked == true || rb_Func1.IsChecked == true)
+                if (Func_1.IsChecked == true)
                 {
-                    Func_3.IsChecked = false;
-                    Func_5.IsChecked = false;
-                    Func_16.IsChecked = false;
-
-                    lb_Funcion.Content = "(1 - Lectura de salidas discretas)";
-
                     ushort primera_Salida = (ushort)(Convert.ToUInt16(tb_PrimeraSalida.Text) - 1);
                     ushort num_Salidas = Convert.ToUInt16(tb_NumElementos.Text);
                     int nBytesEnterosSalidas = num_Salidas / 8;
@@ -179,14 +250,8 @@ namespace Cliente_ModbusTCP
                     }
                 }
 
-                if (Func_3.IsChecked == true || rb_Func3.IsChecked == true)
+                if (Func_3.IsChecked == true)
                 {
-                    Func_1.IsChecked = false;
-                    Func_5.IsChecked = false;
-                    Func_16.IsChecked = false;
-
-                    lb_Funcion.Content = "(3 - Lectura de registros internos)";
-
                     ushort primera_Salida = (ushort)(Convert.ToUInt16(tb_PrimeraSalida.Text) - 40001);
                     ushort num_Salidas = Convert.ToUInt16(tb_NumElementos.Text);
                     int nBytesEnterosSalidas = num_Salidas * 2;
@@ -262,14 +327,8 @@ namespace Cliente_ModbusTCP
                     }
                 }
 
-                if (Func_5.IsChecked == true || rb_Func5.IsChecked == true)
+                if (Func_5.IsChecked == true)
                 {
-                    Func_1.IsChecked = false;
-                    Func_3.IsChecked = false;
-                    Func_16.IsChecked = false;
-
-                    lb_Funcion.Content = "(5 - Modificación del estado de una salida discreta)";
-
                     ushort primera_Salida = (ushort)(Convert.ToUInt16(tb_PrimeraSalida.Text) - 1);
                     ushort num_Salidas = Convert.ToUInt16(tb_NumElementos.Text);
                     int nBytesEnterosSalidas = num_Salidas / 8;
