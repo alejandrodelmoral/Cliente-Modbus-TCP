@@ -48,7 +48,7 @@
         <!-- Botones -->
         <Button x:Name="btn_Peticion" Content="Petición" HorizontalAlignment="Left" Margin="660,380,0,0" VerticalAlignment="Top" IsEnabled="False" Click="btn_Peticion_Click"  Width="55"/>
 
-        <Button x:Name="btn_Conectar" Content="Conectar" HorizontalAlignment="Left" Margin="580,380,0,0" VerticalAlignment="Top" Click="btn_Conectar_Click"  Width="75"/>
+        <Button x:Name="btn_Conectar" Content="Conectar" HorizontalAlignment="Left" Margin="580,380,0,0" VerticalAlignment="Top" Click="btn_Conectar_Click"  Width="75" Background="Lime"/>
 
         <Button x:Name="btn_Salir" Content="Salir" HorizontalAlignment="Left" Margin="720,380,0,0" VerticalAlignment="Top" Click="Salir_Click" Width="50"/>
 

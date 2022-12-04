@@ -80,6 +80,7 @@ namespace Cliente_ModbusTCP
                 if (cliente.conectarServidor())
                 {
                     btn_Conectar.Content = "Desconectar";
+                    btn_Conectar.Background = new SolidColorBrush(Colors.Red);
                     btn_Peticion.IsEnabled = true;
                     Title = "Cliente Modbus/TCP (TLS) - Conectado";
                     conectado = true;
@@ -95,6 +96,7 @@ namespace Cliente_ModbusTCP
                 cliente = null;
                 conectado = false;
                 btn_Conectar.Content = "Conectar";
+                btn_Conectar.Background = new SolidColorBrush(Colors.Lime);
                 Title = "Cliente Modbus/TCP (TLS)";
                 btn_Peticion.IsEnabled = false;
             }

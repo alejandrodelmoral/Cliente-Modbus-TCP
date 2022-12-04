@@ -14,14 +14,17 @@ using System.Windows.Shapes;
 
 namespace Cliente_ModbusTCP
 {
-    /// <summary>
-    /// Lógica de interacción para Sobre.xaml
-    /// </summary>
     public partial class Sobre : Window
     {
         public Sobre()
         {
             InitializeComponent();
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            this.Hide();
+            return;
         }
     }
 }
