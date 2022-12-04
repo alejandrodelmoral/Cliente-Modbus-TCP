@@ -62,6 +62,8 @@ namespace Cliente_ModbusTCP
             lb_Funcion.Content = "(1 - Lectura de salidas discretas)";
             lb_Elemento1.Content = "Primer elemento:";
             lb_Elementos.Content = "Nº elementos:";
+            lb_AyudaElemento1.Content = "(1 - 320)";
+            lb_AyudaElementos.Content = "(1 - 320)";
 
             tb_PrimeraSalida.Margin = new Thickness(110, 214, 0, 0);
             lb_Elementos.Margin = new Thickness(165, 210, 0, 0);
@@ -83,6 +85,8 @@ namespace Cliente_ModbusTCP
             lb_Funcion.Content = "(3 - Lectura de registros internos)";
             lb_Elemento1.Content = "Primer registro:";
             lb_Elementos.Content = "Nº registros:";
+            lb_AyudaElemento1.Content = "(40001 - 40008)";
+            lb_AyudaElementos.Content = "(1 - 8)";
 
             tb_PrimeraSalida.Margin = new Thickness(101, 214, 0, 0);
             lb_Elementos.Margin = new Thickness(165, 210, 0, 0);
@@ -103,6 +107,8 @@ namespace Cliente_ModbusTCP
         {
             lb_Funcion.Content = "(5 - Modificación del estado de una salida discreta)";
             lb_Elemento1.Content = "Salida a forzar:";
+            lb_AyudaElemento1.Content = "(1 - 320)";
+            lb_AyudaElementos.Content = "";
 
             tb_PrimeraSalida.Margin = new Thickness(97, 214, 0, 0);
             lb_Valor.Margin = new Thickness(165, 210, 0, 0);

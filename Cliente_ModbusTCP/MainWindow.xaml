@@ -46,14 +46,24 @@
 
         <Label x:Name="lb_Elemento1" Content="Primer elemento:" HorizontalAlignment="Left" Margin="10,210,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="tb_PrimeraSalida" HorizontalAlignment="Left" Margin="110,214,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="40"/>
+        <Label x:Name="lb_AyudaElemento1" FontSize="9" HorizontalAlignment="Left" Margin="10,226,0,0" VerticalAlignment="Top">
+            <Label.Foreground>
+                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.GrayTextColorKey}}"/>
+            </Label.Foreground>
+        </Label>
 
         <Label x:Name="lb_Elementos" Content="Nº elementos:" HorizontalAlignment="Left" Margin="165,210,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="tb_NumElementos" HorizontalAlignment="Left" Margin="250,214,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="40"/>
+        <Label x:Name="lb_AyudaElementos" FontSize="9" HorizontalAlignment="Left" Margin="165,226,0,0" VerticalAlignment="Top">
+            <Label.Foreground>
+                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.GrayTextColorKey}}"/>
+            </Label.Foreground>
+        </Label>
 
         <Label x:Name="lb_Valor" Content="Valor:" HorizontalAlignment="Left" Margin="305,210,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
         <CheckBox x:Name="cb_Valor" Content="ON / OFF" HorizontalAlignment="Left" Margin="345,216,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
 
-        <DataGrid x:Name="dg_Salidas"  HorizontalAlignment="Left" Margin="16,240,0,0" VerticalAlignment="Top" VerticalScrollBarVisibility="Auto" Width="399" Height="179.76" MaxWidth="399" MaxHeight="179.76"/>
+        <DataGrid x:Name="dg_Salidas"  HorizontalAlignment="Left" Margin="16,253,0,0" VerticalAlignment="Top" VerticalScrollBarVisibility="Auto" Width="399" Height="167" MaxWidth="399" MaxHeight="167"/>
 
         <!-- Botones -->
         <Button x:Name="btn_Peticion" Content="Petición" HorizontalAlignment="Left" Margin="660,400,0,0" VerticalAlignment="Top" IsEnabled="False" Click="btn_Peticion_Click"  Width="55"/>
