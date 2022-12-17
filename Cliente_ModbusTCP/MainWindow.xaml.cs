@@ -19,6 +19,7 @@ namespace Cliente_ModbusTCP
     public partial class MainWindow : Window
     {
         Cliente cliente = null;
+        ClienteTLS clienteTLS = null;
         bool conectado = false;
         ushort num_mensaje = 0;
 
@@ -153,8 +154,11 @@ namespace Cliente_ModbusTCP
             if (!conectado)
             {
                 cliente = new Cliente(tb_DireccionIP.Text, Convert.ToInt32(tb_Puerto.Text));
+                clienteTLS = new ClienteTLS(tb_DireccionIP.Text, Convert.ToInt32(tb_Puerto.Text));
 
-                if (cliente.conectarServidor())
+                if (clienteTLS.conectarServidor(tb_CertifServ.Text, tb_CertifClie.Text == "" ? null : tb_CertifClie.Text))
+
+                //if (cliente.conectarServidor())
                 {
                     btn_Conectar.Content = "Desconectar";
                     btn_Conectar.Background = new SolidColorBrush(Colors.Red);
