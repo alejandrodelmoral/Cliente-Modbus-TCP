@@ -56,6 +56,13 @@ namespace Cliente_ModbusTCP
             return;
         }
         /*---------------------*/
+        
+        /*-- Menú Seguridad --*/
+        private void TLS_Click(object sender, RoutedEventArgs e)
+        {
+            return;
+        }
+        /*--------------------*/
 
         /*-- Menú Funciones --*/
         private void Func_1_Click(object sender, RoutedEventArgs e)
@@ -156,7 +163,7 @@ namespace Cliente_ModbusTCP
                 cliente = new Cliente(tb_DireccionIP.Text, Convert.ToInt32(tb_Puerto.Text));
                 clienteTLS = new ClienteTLS(tb_DireccionIP.Text, Convert.ToInt32(tb_Puerto.Text));
 
-                if (clienteTLS.conectarServidor(tb_CertifServ.Text, tb_CertifClie.Text == "" ? null : tb_CertifClie.Text))
+                if (cliente.conectarServidor() || clienteTLS.conectarServidor(tb_CertifServ.Text, tb_CertifClie.Text == "" ? null : tb_CertifClie.Text))
 
                 //if (cliente.conectarServidor())
                 {
@@ -171,14 +178,21 @@ namespace Cliente_ModbusTCP
                     conectado = true;
                 }
                 else
+                {
                     cliente = null;
+                    clienteTLS = null;
+                }
             }
             else
             {
-                if (cliente != null)
+                if ((cliente != null) || (clienteTLS != null))
+                {
                     cliente.cierraCliente();
+                    clienteTLS.cierraCliente();
+                }
 
                 cliente = null;
+                clienteTLS = null;
                 conectado = false;
                 btn_Conectar.Content = "Conectar";
                 btn_Conectar.Background = new SolidColorBrush(Colors.Lime);
@@ -192,7 +206,7 @@ namespace Cliente_ModbusTCP
 
         private void btn_Peticion_Click(object sender, RoutedEventArgs e)
         {
-            if (cliente != null)
+            if ((cliente != null) || (clienteTLS != null))
             {
                 if (Func_1.IsChecked == true)
                 {
@@ -223,10 +237,12 @@ namespace Cliente_ModbusTCP
                     Array.Copy(parcial, 0, peticion, 10, 2);
 
                     int res = cliente.enviaDatos(peticion, peticion.Length);
+                    //int res = clienteTLS.enviaDatos(peticion, peticion.Length);
 
                     if (res == 12)
                     {
                         res = cliente.recibeDatos(respuesta, respuesta.Length);
+                        //res = clienteTLS.recibeDatos(respuesta, respuesta.Length);
 
                         if (res == nBytesSalidas + 9)
                         {
@@ -288,10 +304,12 @@ namespace Cliente_ModbusTCP
                     Array.Copy(parcial, 0, peticion, 10, 2);
 
                     int res = cliente.enviaDatos(peticion, peticion.Length);
+                    //int res = clienteTLS.enviaDatos(peticion, peticion.Length);
 
                     if (res == 12)
                     {
                         res = cliente.recibeDatos(respuesta, respuesta.Length);
+                        //res = clienteTLS.recibeDatos(respuesta, respuesta.Length);
 
                         if (res == nBytesSalidas + 9)
                         {
@@ -366,10 +384,12 @@ namespace Cliente_ModbusTCP
                     peticion[11] = 0;
 
                     int res = cliente.enviaDatos(peticion, peticion.Length);
+                    //int res = clienteTLS.enviaDatos(peticion, peticion.Length);
 
                     if (res == 12)
                     {
                         res = cliente.recibeDatos(respuesta, respuesta.Length);
+                        //res = clienteTLS.recibeDatos(respuesta, respuesta.Length);
 
                         if (res == 12)
                         {
@@ -394,10 +414,14 @@ namespace Cliente_ModbusTCP
 
         private void Salir_Click(object sender, RoutedEventArgs e)
         {
-            if (cliente != null)
+            if ((cliente != null) || clienteTLS != null)
+            {
                 cliente.cierraCliente();
+                clienteTLS.cierraCliente();
+            }
 
             cliente = null;
+            clienteTLS = null;
             Close();
             return;
         }

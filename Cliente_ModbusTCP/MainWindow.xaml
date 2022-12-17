@@ -92,6 +92,10 @@
                     <Separator/>
                     <MenuItem x:Name="Borrar" Header="_Borrar" Click="Borrar_Click"/>
                 </MenuItem>
+                <!-- Menú Seguridad -->
+                <MenuItem Header="Se_guridad">
+                    <MenuItem x:Name="TLS" Header="_Emplear TLS" Click="TLS_Click"/>
+                </MenuItem>
                 <!-- Menú Funciones -->
                 <MenuItem Header="_Funciones">
                     <MenuItem x:Name="Func_1" Header="_1 - Lectura de salidas discretas" Click="Func_1_Click"/>
@@ -100,7 +104,7 @@
                     <MenuItem x:Name="Func_16" Header="1_6 - Modificar el valor de registros internos" Click="Func_16_Click"/>
                 </MenuItem>
                 <!-- Menú Ayuda -->
-                <MenuItem Header="_Ayuda">
+                <MenuItem Header="A_yuda">
                     <MenuItem x:Name="Sobre" Header="_Sobre..." Click="Sobre_Click"/>
                 </MenuItem>
             </Menu>
