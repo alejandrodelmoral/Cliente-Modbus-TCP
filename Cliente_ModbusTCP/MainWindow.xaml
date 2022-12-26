@@ -14,10 +14,12 @@
         <!-- Conexión -->
         <Label Content="Conexión" FontSize="18" FontFamily="Segoe UI Black" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top"/>
 
-        <Label x:Name="lb_Nombre" HorizontalAlignment="Left" Margin="280,60,0,0" VerticalAlignment="Top">
+        <Label x:Name="lb_Nombre" HorizontalAlignment="Left" Margin="280,60,0,0" VerticalAlignment="Top" Foreground="Lime">
+           <!--
             <Label.Foreground>
                 <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.GrayTextColorKey}}"/>
             </Label.Foreground>
+            -->
         </Label>
 
         <Label Content="Diercción IP:" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top"/>
@@ -94,7 +96,7 @@
                 </MenuItem>
                 <!-- Menú Seguridad -->
                 <MenuItem Header="Se_guridad">
-                    <MenuItem x:Name="TLS" Header="_Emplear TLS" Click="TLS_Click"/>
+                    <MenuItem x:Name="TLS" Header="_Emplear TLS" Click="TLS_Click" IsCheckable="True"/>
                 </MenuItem>
                 <!-- Menú Funciones -->
                 <MenuItem Header="_Funciones">
