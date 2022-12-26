@@ -67,6 +67,9 @@ namespace Cliente_ModbusTCP
         /*-- Menú Seguridad --*/
         private void TLS_Click(object sender, RoutedEventArgs e)
         {
+            if (conectado)
+                btn_Conectar_Click(sender, e);
+
             return;
         }
         /*--------------------*/
@@ -143,14 +146,24 @@ namespace Cliente_ModbusTCP
         private void Func_16_Click(object sender, RoutedEventArgs e)
         {
             lb_Funcion.Content = "(16 - Modificar el valor de registros internos)";
+            lb_Elemento1.Content = "Primer registro:";
+            lb_Elementos.Content = "Nº registros:";
+            lb_AyudaElemento1.Content = "(40001 - 40008)";
+            lb_AyudaElementos.Content = "(1 - 8)";
+
+            tb_PrimeraSalida.Margin = new Thickness(101, 214, 0, 0);
+            lb_Elementos.Margin = new Thickness(165, 210, 0, 0);
+            tb_NumElementos.Margin = new Thickness(241, 214, 0, 0);
+
+            lb_Elementos.Visibility = Visibility.Visible;
+            tb_NumElementos.Visibility = Visibility.Visible;
+            lb_Valor.Visibility = Visibility.Hidden;
+            cb_Valor.Visibility = Visibility.Hidden;
 
             Func_1.IsChecked = false;
             Func_3.IsChecked = false;
             Func_5.IsChecked = false;
             Func_16.IsChecked = true;
-
-            lb_Valor.Visibility = Visibility.Visible;
-            cb_Valor.Visibility = Visibility.Visible;
         }
         /*--------------------*/
 
@@ -214,7 +227,7 @@ namespace Cliente_ModbusTCP
             }
             else
             {
-                if (seguro == true)
+                if (seguro)
                 {
                     if (clienteTLS != null)
                         clienteTLS.cierraCliente();
@@ -287,27 +300,6 @@ namespace Cliente_ModbusTCP
             return;
         }
         /*-------------*/
-
-        private bool[] extraeBits(byte valor, int n)
-        {
-            bool[] solucion = new bool[8];
-            byte mascara = 0x01;
-
-            for (int i = 0; i < n; i++)
-            {
-                if ((valor & mascara) != 0)
-                    solucion[i] = true;
-                else
-                    solucion[i] = false;
-
-                mascara = (byte)(mascara << 1);
-            }
-
-            for (int i = n; i < 8; i++)
-                solucion[i] = false;
-
-            return solucion;
-        }
 
         /*-- Funciones --*/
         private void Funcion1()
@@ -536,6 +528,27 @@ namespace Cliente_ModbusTCP
             return;
         }
         /*---------------*/
+
+        private bool[] extraeBits(byte valor, int n)
+        {
+            bool[] solucion = new bool[8];
+            byte mascara = 0x01;
+
+            for (int i = 0; i < n; i++)
+            {
+                if ((valor & mascara) != 0)
+                    solucion[i] = true;
+                else
+                    solucion[i] = false;
+
+                mascara = (byte)(mascara << 1);
+            }
+
+            for (int i = n; i < 8; i++)
+                solucion[i] = false;
+
+            return solucion;
+        }
 
     }
 
