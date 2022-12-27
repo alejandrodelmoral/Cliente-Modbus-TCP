@@ -67,6 +67,7 @@
 
         <Label x:Name="lb_Registro1" Content="Valor para el primer registro:" HorizontalAlignment="Left" Margin="305,210,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
         <TextBox x:Name="tb_Registro1" HorizontalAlignment="Left" Margin="466,214,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="45" Visibility="Hidden"/>
+        <TextBox x:Name="tb_Registro2" HorizontalAlignment="Left" Margin="516,214,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="45" Visibility="Hidden"/>
 
         <DataGrid x:Name="dg_Salidas"  HorizontalAlignment="Left" Margin="16,253,0,0" VerticalAlignment="Top" VerticalScrollBarVisibility="Auto" Width="399" Height="167" MaxWidth="399" MaxHeight="167"/>
 
