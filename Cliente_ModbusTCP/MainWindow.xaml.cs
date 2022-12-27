@@ -110,28 +110,28 @@ namespace Cliente_ModbusTCP
             btn_Valores.Visibility = Visibility.Hidden;
             lb_Registro1.Visibility = Visibility.Hidden;
             tb_Registro1.Visibility = Visibility.Hidden;
-            cbx_Unidades1.Visibility = Visibility.Hidden;
+            lb_0x1.Visibility = Visibility.Hidden;
             lb_Registro2.Visibility = Visibility.Hidden;
             tb_Registro2.Visibility = Visibility.Hidden;
-            cbx_Unidades2.Visibility = Visibility.Hidden;
+            lb_0x2.Visibility = Visibility.Hidden;
             lb_Registro3.Visibility = Visibility.Hidden;
             tb_Registro3.Visibility = Visibility.Hidden;
-            cbx_Unidades3.Visibility = Visibility.Hidden;
+            lb_0x3.Visibility = Visibility.Hidden;
             lb_Registro4.Visibility = Visibility.Hidden;
             tb_Registro4.Visibility = Visibility.Hidden;
-            cbx_Unidades4.Visibility = Visibility.Hidden;
+            lb_0x4.Visibility = Visibility.Hidden;
             lb_Registro5.Visibility = Visibility.Hidden;
             tb_Registro5.Visibility = Visibility.Hidden;
-            cbx_Unidades5.Visibility = Visibility.Hidden;
+            lb_0x5.Visibility = Visibility.Hidden;
             lb_Registro6.Visibility = Visibility.Hidden;
             tb_Registro6.Visibility = Visibility.Hidden;
-            cbx_Unidades6.Visibility = Visibility.Hidden;
+            lb_0x6.Visibility = Visibility.Hidden;
             lb_Registro7.Visibility = Visibility.Hidden;
             tb_Registro7.Visibility = Visibility.Hidden;
-            cbx_Unidades7.Visibility = Visibility.Hidden;
+            lb_0x7.Visibility = Visibility.Hidden;
             lb_Registro8.Visibility = Visibility.Hidden;
             tb_Registro8.Visibility = Visibility.Hidden;
-            cbx_Unidades8.Visibility = Visibility.Hidden;
+            lb_0x8.Visibility = Visibility.Hidden;
 
             Func_1.IsChecked = true;
             Func_3.IsChecked = false;
@@ -159,28 +159,28 @@ namespace Cliente_ModbusTCP
             btn_Valores.Visibility = Visibility.Hidden;
             lb_Registro1.Visibility = Visibility.Hidden;
             tb_Registro1.Visibility = Visibility.Hidden;
-            cbx_Unidades1.Visibility = Visibility.Hidden;
+            lb_0x1.Visibility = Visibility.Hidden;
             lb_Registro2.Visibility = Visibility.Hidden;
             tb_Registro2.Visibility = Visibility.Hidden;
-            cbx_Unidades2.Visibility = Visibility.Hidden;
+            lb_0x2.Visibility = Visibility.Hidden;
             lb_Registro3.Visibility = Visibility.Hidden;
             tb_Registro3.Visibility = Visibility.Hidden;
-            cbx_Unidades3.Visibility = Visibility.Hidden;
+            lb_0x3.Visibility = Visibility.Hidden;
             lb_Registro4.Visibility = Visibility.Hidden;
             tb_Registro4.Visibility = Visibility.Hidden;
-            cbx_Unidades4.Visibility = Visibility.Hidden;
+            lb_0x4.Visibility = Visibility.Hidden;
             lb_Registro5.Visibility = Visibility.Hidden;
             tb_Registro5.Visibility = Visibility.Hidden;
-            cbx_Unidades5.Visibility = Visibility.Hidden;
+            lb_0x5.Visibility = Visibility.Hidden;
             lb_Registro6.Visibility = Visibility.Hidden;
             tb_Registro6.Visibility = Visibility.Hidden;
-            cbx_Unidades6.Visibility = Visibility.Hidden;
+            lb_0x6.Visibility = Visibility.Hidden;
             lb_Registro7.Visibility = Visibility.Hidden;
             tb_Registro7.Visibility = Visibility.Hidden;
-            cbx_Unidades7.Visibility = Visibility.Hidden;
+            lb_0x7.Visibility = Visibility.Hidden;
             lb_Registro8.Visibility = Visibility.Hidden;
             tb_Registro8.Visibility = Visibility.Hidden;
-            cbx_Unidades8.Visibility = Visibility.Hidden;
+            lb_0x8.Visibility = Visibility.Hidden;
 
             Func_1.IsChecked = false;
             Func_3.IsChecked = true;
@@ -207,28 +207,28 @@ namespace Cliente_ModbusTCP
             btn_Valores.Visibility = Visibility.Hidden;
             lb_Registro1.Visibility = Visibility.Hidden;
             tb_Registro1.Visibility = Visibility.Hidden;
-            cbx_Unidades1.Visibility = Visibility.Hidden;
+            lb_0x1.Visibility = Visibility.Hidden;
             lb_Registro2.Visibility = Visibility.Hidden;
             tb_Registro2.Visibility = Visibility.Hidden;
-            cbx_Unidades2.Visibility = Visibility.Hidden;
+            lb_0x2.Visibility = Visibility.Hidden;
             lb_Registro3.Visibility = Visibility.Hidden;
             tb_Registro3.Visibility = Visibility.Hidden;
-            cbx_Unidades3.Visibility = Visibility.Hidden;
+            lb_0x3.Visibility = Visibility.Hidden;
             lb_Registro4.Visibility = Visibility.Hidden;
             tb_Registro4.Visibility = Visibility.Hidden;
-            cbx_Unidades4.Visibility = Visibility.Hidden;
+            lb_0x4.Visibility = Visibility.Hidden;
             lb_Registro5.Visibility = Visibility.Hidden;
             tb_Registro5.Visibility = Visibility.Hidden;
-            cbx_Unidades5.Visibility = Visibility.Hidden;
+            lb_0x5.Visibility = Visibility.Hidden;
             lb_Registro6.Visibility = Visibility.Hidden;
             tb_Registro6.Visibility = Visibility.Hidden;
-            cbx_Unidades6.Visibility = Visibility.Hidden;
+            lb_0x6.Visibility = Visibility.Hidden;
             lb_Registro7.Visibility = Visibility.Hidden;
             tb_Registro7.Visibility = Visibility.Hidden;
-            cbx_Unidades7.Visibility = Visibility.Hidden;
+            lb_0x7.Visibility = Visibility.Hidden;
             lb_Registro8.Visibility = Visibility.Hidden;
             tb_Registro8.Visibility = Visibility.Hidden;
-            cbx_Unidades8.Visibility = Visibility.Hidden;
+            lb_0x8.Visibility = Visibility.Hidden;
 
             Func_1.IsChecked = false;
             Func_3.IsChecked = false;
@@ -256,28 +256,28 @@ namespace Cliente_ModbusTCP
             btn_Valores.Visibility = Visibility.Visible;
             lb_Registro1.Visibility = Visibility.Hidden;
             tb_Registro1.Visibility = Visibility.Hidden;
-            cbx_Unidades1.Visibility = Visibility.Hidden;
+            lb_0x1.Visibility = Visibility.Hidden;
             lb_Registro2.Visibility = Visibility.Hidden;
             tb_Registro2.Visibility = Visibility.Hidden;
-            cbx_Unidades2.Visibility = Visibility.Hidden;
+            lb_0x2.Visibility = Visibility.Hidden;
             lb_Registro3.Visibility = Visibility.Hidden;
             tb_Registro3.Visibility = Visibility.Hidden;
-            cbx_Unidades3.Visibility = Visibility.Hidden;
+            lb_0x3.Visibility = Visibility.Hidden;
             lb_Registro4.Visibility = Visibility.Hidden;
             tb_Registro4.Visibility = Visibility.Hidden;
-            cbx_Unidades4.Visibility = Visibility.Hidden;
+            lb_0x4.Visibility = Visibility.Hidden;
             lb_Registro5.Visibility = Visibility.Hidden;
             tb_Registro5.Visibility = Visibility.Hidden;
-            cbx_Unidades5.Visibility = Visibility.Hidden;
+            lb_0x5.Visibility = Visibility.Hidden;
             lb_Registro6.Visibility = Visibility.Hidden;
             tb_Registro6.Visibility = Visibility.Hidden;
-            cbx_Unidades6.Visibility = Visibility.Hidden;
+            lb_0x6.Visibility = Visibility.Hidden;
             lb_Registro7.Visibility = Visibility.Hidden;
             tb_Registro7.Visibility = Visibility.Hidden;
-            cbx_Unidades7.Visibility = Visibility.Hidden;
+            lb_0x7.Visibility = Visibility.Hidden;
             lb_Registro8.Visibility = Visibility.Hidden;
             tb_Registro8.Visibility = Visibility.Hidden;
-            cbx_Unidades8.Visibility = Visibility.Hidden;
+            lb_0x8.Visibility = Visibility.Hidden;
 
             Func_1.IsChecked = false;
             Func_3.IsChecked = false;
@@ -409,133 +409,133 @@ namespace Cliente_ModbusTCP
             {
                 lb_Registro1.Visibility = Visibility.Visible;
                 tb_Registro1.Visibility = Visibility.Visible;
-                cbx_Unidades1.Visibility = Visibility.Visible;
+                lb_0x1.Visibility = Visibility.Visible;
                 lb_Registro2.Visibility = Visibility.Hidden;
                 tb_Registro2.Visibility = Visibility.Hidden;
-                cbx_Unidades2.Visibility = Visibility.Hidden;
+                lb_0x2.Visibility = Visibility.Hidden;
                 lb_Registro3.Visibility = Visibility.Hidden;
                 tb_Registro3.Visibility = Visibility.Hidden;
-                cbx_Unidades3.Visibility = Visibility.Hidden;
+                lb_0x3.Visibility = Visibility.Hidden;
                 lb_Registro4.Visibility = Visibility.Hidden;
                 tb_Registro4.Visibility = Visibility.Hidden;
-                cbx_Unidades4.Visibility = Visibility.Hidden;
+                lb_0x4.Visibility = Visibility.Hidden;
                 lb_Registro5.Visibility = Visibility.Hidden;
                 tb_Registro5.Visibility = Visibility.Hidden;
-                cbx_Unidades5.Visibility = Visibility.Hidden;
+                lb_0x5.Visibility = Visibility.Hidden;
                 lb_Registro6.Visibility = Visibility.Hidden;
                 tb_Registro6.Visibility = Visibility.Hidden;
-                cbx_Unidades6.Visibility = Visibility.Hidden;
+                lb_0x6.Visibility = Visibility.Hidden;
                 lb_Registro7.Visibility = Visibility.Hidden;
                 tb_Registro7.Visibility = Visibility.Hidden;
-                cbx_Unidades7.Visibility = Visibility.Hidden;
+                lb_0x7.Visibility = Visibility.Hidden;
                 lb_Registro8.Visibility = Visibility.Hidden;
                 tb_Registro8.Visibility = Visibility.Hidden;
-                cbx_Unidades8.Visibility = Visibility.Hidden;
+                lb_0x8.Visibility = Visibility.Hidden;
 
                 if (Convert.ToUInt16(tb_NumElementos.Text) > 1)
                 {
                     lb_Registro2.Visibility = Visibility.Visible;
                     tb_Registro2.Visibility = Visibility.Visible;
-                    cbx_Unidades2.Visibility = Visibility.Visible;
+                    lb_0x2.Visibility = Visibility.Visible;
                     lb_Registro3.Visibility = Visibility.Hidden;
                     tb_Registro3.Visibility = Visibility.Hidden;
-                    cbx_Unidades3.Visibility = Visibility.Hidden;
+                    lb_0x3.Visibility = Visibility.Hidden;
                     lb_Registro4.Visibility = Visibility.Hidden;
                     tb_Registro4.Visibility = Visibility.Hidden;
-                    cbx_Unidades4.Visibility = Visibility.Hidden;
+                    lb_0x4.Visibility = Visibility.Hidden;
                     lb_Registro5.Visibility = Visibility.Hidden;
                     tb_Registro5.Visibility = Visibility.Hidden;
-                    cbx_Unidades5.Visibility = Visibility.Hidden;
+                    lb_0x5.Visibility = Visibility.Hidden;
                     lb_Registro6.Visibility = Visibility.Hidden;
                     tb_Registro6.Visibility = Visibility.Hidden;
-                    cbx_Unidades6.Visibility = Visibility.Hidden;
+                    lb_0x6.Visibility = Visibility.Hidden;
                     lb_Registro7.Visibility = Visibility.Hidden;
                     tb_Registro7.Visibility = Visibility.Hidden;
-                    cbx_Unidades7.Visibility = Visibility.Hidden;
+                    lb_0x7.Visibility = Visibility.Hidden;
                     lb_Registro8.Visibility = Visibility.Hidden;
                     tb_Registro8.Visibility = Visibility.Hidden;
-                    cbx_Unidades8.Visibility = Visibility.Hidden;
+                    lb_0x8.Visibility = Visibility.Hidden;
 
                     if (Convert.ToUInt16(tb_NumElementos.Text) > 2)
                     {
                         lb_Registro3.Visibility = Visibility.Visible;
                         tb_Registro3.Visibility = Visibility.Visible;
-                        cbx_Unidades3.Visibility = Visibility.Visible;
+                        lb_0x3.Visibility = Visibility.Visible;
                         lb_Registro4.Visibility = Visibility.Hidden;
                         tb_Registro4.Visibility = Visibility.Hidden;
-                        cbx_Unidades4.Visibility = Visibility.Hidden;
+                        lb_0x4.Visibility = Visibility.Hidden;
                         lb_Registro5.Visibility = Visibility.Hidden;
                         tb_Registro5.Visibility = Visibility.Hidden;
-                        cbx_Unidades5.Visibility = Visibility.Hidden;
+                        lb_0x5.Visibility = Visibility.Hidden;
                         lb_Registro6.Visibility = Visibility.Hidden;
                         tb_Registro6.Visibility = Visibility.Hidden;
-                        cbx_Unidades6.Visibility = Visibility.Hidden;
+                        lb_0x6.Visibility = Visibility.Hidden;
                         lb_Registro7.Visibility = Visibility.Hidden;
                         tb_Registro7.Visibility = Visibility.Hidden;
-                        cbx_Unidades7.Visibility = Visibility.Hidden;
+                        lb_0x7.Visibility = Visibility.Hidden;
                         lb_Registro8.Visibility = Visibility.Hidden;
                         tb_Registro8.Visibility = Visibility.Hidden;
-                        cbx_Unidades8.Visibility = Visibility.Hidden;
+                        lb_0x8.Visibility = Visibility.Hidden;
 
                         if (Convert.ToUInt16(tb_NumElementos.Text) > 3)
                         {
                             lb_Registro4.Visibility = Visibility.Visible;
                             tb_Registro4.Visibility = Visibility.Visible;
-                            cbx_Unidades4.Visibility = Visibility.Visible;
+                            lb_0x4.Visibility = Visibility.Visible;
                             lb_Registro5.Visibility = Visibility.Hidden;
                             tb_Registro5.Visibility = Visibility.Hidden;
-                            cbx_Unidades5.Visibility = Visibility.Hidden;
+                            lb_0x5.Visibility = Visibility.Hidden;
                             lb_Registro6.Visibility = Visibility.Hidden;
                             tb_Registro6.Visibility = Visibility.Hidden;
-                            cbx_Unidades6.Visibility = Visibility.Hidden;
+                            lb_0x6.Visibility = Visibility.Hidden;
                             lb_Registro7.Visibility = Visibility.Hidden;
                             tb_Registro7.Visibility = Visibility.Hidden;
-                            cbx_Unidades7.Visibility = Visibility.Hidden;
+                            lb_0x7.Visibility = Visibility.Hidden;
                             lb_Registro8.Visibility = Visibility.Hidden;
                             tb_Registro8.Visibility = Visibility.Hidden;
-                            cbx_Unidades8.Visibility = Visibility.Hidden;
+                            lb_0x8.Visibility = Visibility.Hidden;
 
                             if (Convert.ToUInt16(tb_NumElementos.Text) > 4)
                             {
                                 lb_Registro5.Visibility = Visibility.Visible;
                                 tb_Registro5.Visibility = Visibility.Visible;
-                                cbx_Unidades5.Visibility = Visibility.Visible;
+                                lb_0x5.Visibility = Visibility.Visible;
                                 lb_Registro6.Visibility = Visibility.Hidden;
                                 tb_Registro6.Visibility = Visibility.Hidden;
-                                cbx_Unidades6.Visibility = Visibility.Hidden;
+                                lb_0x6.Visibility = Visibility.Hidden;
                                 lb_Registro7.Visibility = Visibility.Hidden;
                                 tb_Registro7.Visibility = Visibility.Hidden;
-                                cbx_Unidades7.Visibility = Visibility.Hidden;
+                                lb_0x7.Visibility = Visibility.Hidden;
                                 lb_Registro8.Visibility = Visibility.Hidden;
                                 tb_Registro8.Visibility = Visibility.Hidden;
-                                cbx_Unidades8.Visibility = Visibility.Hidden;
+                                lb_0x8.Visibility = Visibility.Hidden;
 
                                 if (Convert.ToUInt16(tb_NumElementos.Text) > 5)
                                 {
                                     lb_Registro6.Visibility = Visibility.Visible;
                                     tb_Registro6.Visibility = Visibility.Visible;
-                                    cbx_Unidades6.Visibility = Visibility.Visible;
+                                    lb_0x6.Visibility = Visibility.Visible;
                                     lb_Registro7.Visibility = Visibility.Hidden;
                                     tb_Registro7.Visibility = Visibility.Hidden;
-                                    cbx_Unidades7.Visibility = Visibility.Hidden;
+                                    lb_0x7.Visibility = Visibility.Hidden;
                                     lb_Registro8.Visibility = Visibility.Hidden;
                                     tb_Registro8.Visibility = Visibility.Hidden;
-                                    cbx_Unidades8.Visibility = Visibility.Hidden;
+                                    lb_0x8.Visibility = Visibility.Hidden;
 
                                     if (Convert.ToUInt16(tb_NumElementos.Text) > 6)
                                     {
                                         lb_Registro7.Visibility = Visibility.Visible;
                                         tb_Registro7.Visibility = Visibility.Visible;
-                                        cbx_Unidades7.Visibility = Visibility.Visible;
+                                        lb_0x7.Visibility = Visibility.Visible;
                                         lb_Registro8.Visibility = Visibility.Hidden;
                                         tb_Registro8.Visibility = Visibility.Hidden;
-                                        cbx_Unidades8.Visibility = Visibility.Hidden;
+                                        lb_0x8.Visibility = Visibility.Hidden;
 
                                         if (Convert.ToUInt16(tb_NumElementos.Text) > 7)
                                         {
                                             lb_Registro8.Visibility = Visibility.Visible;
                                             tb_Registro8.Visibility = Visibility.Visible;
-                                            cbx_Unidades8.Visibility = Visibility.Visible;
+                                            lb_0x8.Visibility = Visibility.Visible;
                                         }
                                     }
                                 }
