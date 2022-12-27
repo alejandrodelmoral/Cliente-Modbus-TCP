@@ -863,7 +863,6 @@ namespace Cliente_ModbusTCP
             peticion[12] = (byte)nBytesSalidas;
 
             // peticion[13 ... 28]
-
             if (num_Salidas > 0)
             {
                 string primbyte = tb_Registro1.Text.Substring(0, 2);
