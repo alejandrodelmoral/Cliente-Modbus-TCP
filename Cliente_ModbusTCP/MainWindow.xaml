@@ -15,7 +15,7 @@
         <Label Content="Conexión" FontSize="18" FontFamily="Segoe UI Black" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top"/>
 
         <Label x:Name="lb_Nombre" HorizontalAlignment="Left" Margin="280,60,0,0" VerticalAlignment="Top" Foreground="Lime">
-           <!--
+            <!--
             <Label.Foreground>
                 <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.GrayTextColorKey}}"/>
             </Label.Foreground>
@@ -65,13 +65,83 @@
         <Label x:Name="lb_Valor" Content="Valor:" HorizontalAlignment="Left" Margin="305,210,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
         <CheckBox x:Name="cb_Valor" Content="ON / OFF" HorizontalAlignment="Left" Margin="345,216,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
 
-        <Label x:Name="lb_Registro1" Content="Valor para el primer registro:" HorizontalAlignment="Left" Margin="305,210,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
-        <TextBox x:Name="tb_Registro1" Text="0x" HorizontalAlignment="Left" Margin="466,214,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="45" Visibility="Hidden"/>
-        <TextBox x:Name="tb_Registro2" HorizontalAlignment="Left" Margin="516,214,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="45" Visibility="Hidden"/>
+        <Label x:Name="lb_Registro1" Content="Valor primer registro:" HorizontalAlignment="Left" Margin="421,170,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
+        <ComboBox x:Name="cbx_Unidades1" HorizontalAlignment="Left" Margin="431,198,0,0" VerticalAlignment="Top" Width="50" Visibility="Hidden">
+            <ComboBoxItem Content="Dec"/>
+            <ComboBoxItem Content="Hex"/>
+            <ComboBoxItem Content="Oct"/>
+            <ComboBoxItem Content="Bin"/>
+        </ComboBox>
+        <TextBox x:Name="tb_Registro1" HorizontalAlignment="Left" Margin="486,200,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="45" Visibility="Hidden"/>
+
+        <Label x:Name="lb_Registro2" Content="Valor segundo registro:" HorizontalAlignment="Left" Margin="560,170,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
+        <ComboBox x:Name="cbx_Unidades2" HorizontalAlignment="Left" Margin="570,198,0,0" VerticalAlignment="Top" Width="50" Visibility="Hidden">
+            <ComboBoxItem Content="Dec"/>
+            <ComboBoxItem Content="Hex"/>
+            <ComboBoxItem Content="Oct"/>
+            <ComboBoxItem Content="Bin"/>
+        </ComboBox>
+        <TextBox x:Name="tb_Registro2" HorizontalAlignment="Left" Margin="624,200,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="45" Visibility="Hidden"/>
+
+        <Label x:Name="lb_Registro3" Content="Valor tercer registro:" HorizontalAlignment="Left" Margin="421,230,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
+        <ComboBox x:Name="cbx_Unidades3" HorizontalAlignment="Left" Margin="431,258,0,0" VerticalAlignment="Top" Width="50" Visibility="Hidden">
+            <ComboBoxItem Content="Dec"/>
+            <ComboBoxItem Content="Hex"/>
+            <ComboBoxItem Content="Oct"/>
+            <ComboBoxItem Content="Bin"/>
+        </ComboBox>
+        <TextBox x:Name="tb_Registro3" HorizontalAlignment="Left" Margin="486,260,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="45" Visibility="Hidden"/>
+
+        <Label x:Name="lb_Registro4" Content="Valor cuarto registro:" HorizontalAlignment="Left" Margin="560,230,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
+        <ComboBox x:Name="cbx_Unidades4" HorizontalAlignment="Left" Margin="570,258,0,0" VerticalAlignment="Top" Width="50" Visibility="Hidden">
+            <ComboBoxItem Content="Dec"/>
+            <ComboBoxItem Content="Hex"/>
+            <ComboBoxItem Content="Oct"/>
+            <ComboBoxItem Content="Bin"/>
+        </ComboBox>
+        <TextBox x:Name="tb_Registro4" HorizontalAlignment="Left" Margin="624,260,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="45" Visibility="Hidden"/>
+
+        <Label x:Name="lb_Registro5" Content="Valor quinto registro:" HorizontalAlignment="Left" Margin="421,290,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
+        <ComboBox x:Name="cbx_Unidades5" HorizontalAlignment="Left" Margin="431,318,0,0" VerticalAlignment="Top" Width="50" Visibility="Hidden">
+            <ComboBoxItem Content="Dec"/>
+            <ComboBoxItem Content="Hex"/>
+            <ComboBoxItem Content="Oct"/>
+            <ComboBoxItem Content="Bin"/>
+        </ComboBox>
+        <TextBox x:Name="tb_Registro5" HorizontalAlignment="Left" Margin="486,320,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="45" Visibility="Hidden"/>
+
+        <Label x:Name="lb_Registro6" Content="Valor sexto registro:" HorizontalAlignment="Left" Margin="560,290,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
+        <ComboBox x:Name="cbx_Unidades6" HorizontalAlignment="Left" Margin="570,318,0,0" VerticalAlignment="Top" Width="50" Visibility="Hidden">
+            <ComboBoxItem Content="Dec"/>
+            <ComboBoxItem Content="Hex"/>
+            <ComboBoxItem Content="Oct"/>
+            <ComboBoxItem Content="Bin"/>
+        </ComboBox>
+        <TextBox x:Name="tb_Registro6" HorizontalAlignment="Left" Margin="624,320,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="45" Visibility="Hidden"/>
+
+        <Label x:Name="lb_Registro7" Content="Valor séptimo registro:" HorizontalAlignment="Left" Margin="421,350,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
+        <ComboBox x:Name="cbx_Unidades7" HorizontalAlignment="Left" Margin="431,378,0,0" VerticalAlignment="Top" Width="50" Visibility="Hidden">
+            <ComboBoxItem Content="Dec"/>
+            <ComboBoxItem Content="Hex"/>
+            <ComboBoxItem Content="Oct"/>
+            <ComboBoxItem Content="Bin"/>
+        </ComboBox>
+        <TextBox x:Name="tb_Registro7" HorizontalAlignment="Left" Margin="486,380,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="45" Visibility="Hidden"/>
+
+        <Label x:Name="lb_Registro8" Content="Valor octavo registro:" HorizontalAlignment="Left" Margin="560,350,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
+        <ComboBox x:Name="cbx_Unidades8" HorizontalAlignment="Left" Margin="570,378,0,0" VerticalAlignment="Top" Width="50" Visibility="Hidden">
+            <ComboBoxItem Content="Dec"/>
+            <ComboBoxItem Content="Hex"/>
+            <ComboBoxItem Content="Oct"/>
+            <ComboBoxItem Content="Bin"/>
+        </ComboBox>
+        <TextBox x:Name="tb_Registro8" HorizontalAlignment="Left" Margin="624,380,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="45" Visibility="Hidden"/>
 
         <DataGrid x:Name="dg_Salidas"  HorizontalAlignment="Left" Margin="16,253,0,0" VerticalAlignment="Top" VerticalScrollBarVisibility="Auto" Width="399" Height="167" MaxWidth="399" MaxHeight="167"/>
 
         <!-- Botones -->
+        <Button x:Name="btn_Valores" Content="Valores" HorizontalAlignment="Left" Margin="365,213,0,0" VerticalAlignment="Top" Click="btn_Valores_Click" Width="50" Visibility="Hidden" IsEnabled="False"/>
+
         <Button x:Name="btn_Peticion" Content="Petición" HorizontalAlignment="Left" Margin="660,400,0,0" VerticalAlignment="Top" IsEnabled="False" Click="btn_Peticion_Click"  Width="55"/>
 
         <Button x:Name="btn_Conectar" Content="Conectar" HorizontalAlignment="Left" Margin="580,400,0,0" VerticalAlignment="Top" Click="btn_Conectar_Click"  Width="75" Background="Lime"/>
