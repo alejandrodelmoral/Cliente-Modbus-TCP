@@ -626,8 +626,11 @@ namespace Cliente_ModbusTCP
             peticion[12] = (byte)nBytesSalidas;
 
             // peticion[13...]
-            peticion[13] = (byte)Convert.ToUInt16(tb_Registro2.Text);
-            peticion[14] = (byte)Convert.ToUInt16(tb_Registro1.Text);
+            string primbyte = tb_Registro1.Text.Substring(2, 2);
+            string segubyte = tb_Registro1.Text.Substring(4, 2);
+
+            peticion[13] = (byte)Convert.ToUInt16(tb_Registro1.Text);
+            peticion[14] = (byte)Convert.ToUInt16(tb_Registro2.Text);
 
             if (seguro)
                 res = clienteTLS.enviaDatos(peticion, peticion.Length);
