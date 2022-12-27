@@ -67,6 +67,21 @@ namespace Cliente_ModbusTCP
         /*-- Menú Seguridad --*/
         private void TLS_Click(object sender, RoutedEventArgs e)
         {
+            if (TLS.IsChecked)
+            {
+                lb_SAN.Foreground = new SolidColorBrush(Colors.Black);
+                tb_CertifServ.IsEnabled = true;
+                lb_DN.Foreground = new SolidColorBrush(Colors.Black);
+                tb_CertifClie.IsEnabled = true;
+            }
+            else
+            {
+                lb_SAN.Foreground = new SolidColorBrush(Colors.Gray);
+                tb_CertifServ.IsEnabled = false;
+                lb_DN.Foreground = new SolidColorBrush(Colors.Gray);
+                tb_CertifClie.IsEnabled = false;
+            }
+
             if (conectado)
                 btn_Conectar_Click(sender, e);
 
@@ -92,6 +107,9 @@ namespace Cliente_ModbusTCP
             lb_Valor.Visibility = Visibility.Hidden;
             cb_Valor.Visibility = Visibility.Hidden;
 
+            lb_Registro1.Visibility = Visibility.Hidden;
+            tb_Registro1.Visibility = Visibility.Hidden;
+
             Func_1.IsChecked = true;
             Func_3.IsChecked = false;
             Func_5.IsChecked = false;
@@ -115,6 +133,9 @@ namespace Cliente_ModbusTCP
             lb_Valor.Visibility = Visibility.Hidden;
             cb_Valor.Visibility = Visibility.Hidden;
 
+            lb_Registro1.Visibility = Visibility.Hidden;
+            tb_Registro1.Visibility = Visibility.Hidden;
+
             Func_1.IsChecked = false;
             Func_3.IsChecked = true;
             Func_5.IsChecked = false;
@@ -136,6 +157,9 @@ namespace Cliente_ModbusTCP
             tb_NumElementos.Visibility = Visibility.Hidden;
             lb_Valor.Visibility = Visibility.Visible;
             cb_Valor.Visibility = Visibility.Visible;
+
+            lb_Registro1.Visibility = Visibility.Hidden;
+            tb_Registro1.Visibility = Visibility.Hidden;
 
             Func_1.IsChecked = false;
             Func_3.IsChecked = false;
@@ -159,6 +183,9 @@ namespace Cliente_ModbusTCP
             tb_NumElementos.Visibility = Visibility.Visible;
             lb_Valor.Visibility = Visibility.Hidden;
             cb_Valor.Visibility = Visibility.Hidden;
+
+            lb_Registro1.Visibility = Visibility.Visible;
+            tb_Registro1.Visibility = Visibility.Visible;
 
             Func_1.IsChecked = false;
             Func_3.IsChecked = false;
@@ -315,18 +342,28 @@ namespace Cliente_ModbusTCP
             byte[] parcial;
             int res;
 
+            // peticion[0 - 1]
             parcial = BitConverter.GetBytes(num_mensaje);
             Array.Copy(parcial, 0, peticion, 0, 2);
+
+            // peticion[2 - 3]
             peticion[2] = peticion[3] = 0;
+
+            // peticion[4 - 5]
             parcial = BitConverter.GetBytes((ushort)6);
             Array.Reverse(parcial, 0, 2);
             Array.Copy(parcial, 0, peticion, 4, 2);
 
+            // peticion[6 - 7]
             peticion[6] = 2;
             peticion[7] = 1;
+
+            // peticion[8 - 9]
             parcial = BitConverter.GetBytes(primera_Salida);
             Array.Reverse(parcial, 0, 2);
             Array.Copy(parcial, 0, peticion, 8, 2);
+
+            // peticion[10 - 11]
             parcial = BitConverter.GetBytes(num_Salidas);
             Array.Reverse(parcial, 0, 2);
             Array.Copy(parcial, 0, peticion, 10, 2);
@@ -389,18 +426,28 @@ namespace Cliente_ModbusTCP
             byte[] parcial;
             int res;
 
+            // peticion[0 - 1]
             parcial = BitConverter.GetBytes(num_mensaje);
             Array.Copy(parcial, 0, peticion, 0, 2);
+
+            // peticion[2 - 3]
             peticion[2] = peticion[3] = 0;
+
+            // peticion[4 - 5]
             parcial = BitConverter.GetBytes((ushort)6);
             Array.Reverse(parcial, 0, 2);
             Array.Copy(parcial, 0, peticion, 4, 2);
 
+            // peticion[6 - 7]
             peticion[6] = 2;
             peticion[7] = 3;
+
+            // peticion[8 - 9]
             parcial = BitConverter.GetBytes(primera_Salida);
             Array.Reverse(parcial, 0, 2);
             Array.Copy(parcial, 0, peticion, 8, 2);
+
+            // peticion[10 - 11]
             parcial = BitConverter.GetBytes(num_Salidas);
             Array.Reverse(parcial, 0, 2);
             Array.Copy(parcial, 0, peticion, 10, 2);
@@ -472,24 +519,34 @@ namespace Cliente_ModbusTCP
             byte[] parcial;
             int res;
 
+            // peticion[0 - 1]
             parcial = BitConverter.GetBytes(num_mensaje);
             Array.Copy(parcial, 0, peticion, 0, 2);
+
+            // peticion[2 - 3]
             peticion[2] = peticion[3] = 0;
+
+            // peticion[4 - 5]
             parcial = BitConverter.GetBytes((ushort)6);
             Array.Reverse(parcial, 0, 2);
             Array.Copy(parcial, 0, peticion, 4, 2);
 
+            // peticion[6 - 7]
             peticion[6] = 2;
             peticion[7] = 5;
+
+            // peticion[8 - 9]
             parcial = BitConverter.GetBytes(primera_Salida);
             Array.Reverse(parcial, 0, 2);
             Array.Copy(parcial, 0, peticion, 8, 2);
 
+            // peticion[10]
             if (cb_Valor.IsChecked == true)
                 peticion[10] = 0xFF;
             else
                 peticion[10] = 0;
 
+            // peticion[11]
             peticion[11] = 0;
 
             if (seguro)
@@ -525,6 +582,103 @@ namespace Cliente_ModbusTCP
 
         private void Funcion16()
         {
+            ushort primera_Salida = (ushort)(Convert.ToUInt16(tb_PrimeraSalida.Text) - 40001);
+            ushort num_Salidas = Convert.ToUInt16(tb_NumElementos.Text);
+            int nBytesEnterosSalidas = num_Salidas * 2;
+            int nBytesSalidas = nBytesEnterosSalidas;
+
+            byte[] peticion = new byte[28];
+            byte[] respuesta = new byte[256];
+            byte[] parcial;
+            int res;
+
+            // peticion[0 - 1]
+            parcial = BitConverter.GetBytes(num_mensaje);
+            Array.Copy(parcial, 0, peticion, 0, 2);
+
+            // peticion[2 - 3]
+            peticion[2] = peticion[3] = 0;
+
+            // peticion[4 - 5]
+            parcial = BitConverter.GetBytes((ushort)6);
+            Array.Reverse(parcial, 0, 2);
+            Array.Copy(parcial, 0, peticion, 4, 2);
+
+            // peticion[6 - 7]
+            peticion[6] = 2;
+            peticion[7] = 16;
+
+            // peticion[8 - 9]
+            parcial = BitConverter.GetBytes(primera_Salida);
+            Array.Reverse(parcial, 0, 2);
+            Array.Copy(parcial, 0, peticion, 8, 2);
+
+            // peticion[10 - 11]
+            parcial = BitConverter.GetBytes(num_Salidas);
+            Array.Reverse(parcial, 0, 2);
+            Array.Copy(parcial, 0, peticion, 10, 2);
+
+            // peticion[12]
+            peticion[12] = (byte)nBytesSalidas;
+
+            // peticion[13...]
+
+
+            if (seguro)
+                res = clienteTLS.enviaDatos(peticion, peticion.Length);
+            else
+                res = cliente.enviaDatos(peticion, peticion.Length);
+
+            if (res == 12)
+            {
+                if (seguro)
+                    res = clienteTLS.recibeDatos(respuesta, respuesta.Length);
+                else
+                    res = cliente.recibeDatos(respuesta, respuesta.Length);
+
+                if (res == nBytesSalidas + 9)
+                {
+                    List<datosGrid> lista = new List<datosGrid>();
+                    datosGrid elemento;
+                    bool[] temp;
+
+                    int k = primera_Salida + 1;
+                    int maxBits;
+                    //int cont = 0;
+                    byte[] aux = new byte[2];
+
+                    for (int i = 0; i < respuesta[8] / 2; i++)
+                    {
+                        aux[0] = respuesta[(i * 2) + 9];
+                        aux[1] = respuesta[(i * 2) + 10];
+
+                        Array.Reverse(aux, 0, 2);
+                        Array.Copy(aux, 0, respuesta, 9 + (i * 2), 2);
+                        //cont += 2;
+                    }
+
+                    for (int i = 0; i < respuesta[8]; i++)
+                    {
+                        temp = extraeBits(respuesta[9 + i], 8);
+
+                        if (i < nBytesEnterosSalidas)
+                            maxBits = 8;
+                        else
+                            maxBits = num_Salidas % 8;
+
+                        for (int j = 0; j < maxBits; j++)
+                        {
+                            elemento = new datosGrid();
+                            elemento.Elemento = k++;
+                            elemento.Estado = temp[j];
+                            lista.Add(elemento);
+                        }
+                    }
+
+                    dg_Salidas.ItemsSource = lista;
+                }
+            }
+
             return;
         }
         /*---------------*/
