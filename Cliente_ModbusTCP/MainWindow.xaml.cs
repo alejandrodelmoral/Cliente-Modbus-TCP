@@ -828,7 +828,7 @@ namespace Cliente_ModbusTCP
             int nBytesEnterosSalidas = num_Salidas * 2;
             int nBytesSalidas = nBytesEnterosSalidas;
 
-            byte[] peticion = new byte[19];
+            byte[] peticion = new byte[15];
             byte[] respuesta = new byte[256];
             byte[] parcial;
             int res;
@@ -925,48 +925,6 @@ namespace Cliente_ModbusTCP
                     res = clienteTLS.recibeDatos(respuesta, respuesta.Length);
                 else
                     res = cliente.recibeDatos(respuesta, respuesta.Length);
-
-                //    if (res == 12)
-                //    {
-                //        List<datosGrid> lista = new List<datosGrid>();
-                //        datosGrid elemento;
-                //        bool[] temp;
-
-                //        int k = primera_Salida + 1;
-                //        int maxBits;
-                //        //int cont = 0;
-                //        byte[] aux = new byte[2];
-
-                //        for (int i = 0; i < respuesta[8] / 2; i++)
-                //        {
-                //            aux[0] = respuesta[(i * 2) + 9];
-                //            aux[1] = respuesta[(i * 2) + 10];
-
-                //            Array.Reverse(aux, 0, 2);
-                //            Array.Copy(aux, 0, respuesta, 9 + (i * 2), 2);
-                //            //cont += 2;
-                //        }
-
-                //        for (int i = 0; i < respuesta[8]; i++)
-                //        {
-                //            temp = extraeBits(respuesta[9 + i], 8);
-
-                //            if (i < nBytesEnterosSalidas)
-                //                maxBits = 8;
-                //            else
-                //                maxBits = num_Salidas % 8;
-
-                //            for (int j = 0; j < maxBits; j++)
-                //            {
-                //                elemento = new datosGrid();
-                //                elemento.Elemento = k++;
-                //                elemento.Estado = temp[j];
-                //                lista.Add(elemento);
-                //            }
-                //        }
-
-                //        dg_Salidas.ItemsSource = lista;
-                //    }
             }
 
             return;
