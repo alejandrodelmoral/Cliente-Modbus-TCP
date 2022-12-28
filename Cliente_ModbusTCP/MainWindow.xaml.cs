@@ -133,6 +133,20 @@ namespace Cliente_ModbusTCP
             tb_Registro8.Visibility = Visibility.Hidden;
             lb_0x8.Visibility = Visibility.Hidden;
 
+            tb_PrimeraSalida.Text = "";
+            tb_NumElementos.Text = "";
+            cb_Valor.IsChecked = false;
+            tb_Registro1.Text = "";
+            tb_Registro2.Text = "";
+            tb_Registro3.Text = "";
+            tb_Registro4.Text = "";
+            tb_Registro5.Text = "";
+            tb_Registro6.Text = "";
+            tb_Registro7.Text = "";
+            tb_Registro8.Text = "";
+            rtb_Func.Visibility = Visibility.Hidden;
+            rtb_Func.Document.Blocks.Clear();
+
             Func_1.IsChecked = true;
             Func_3.IsChecked = false;
             Func_5.IsChecked = false;
@@ -182,6 +196,20 @@ namespace Cliente_ModbusTCP
             tb_Registro8.Visibility = Visibility.Hidden;
             lb_0x8.Visibility = Visibility.Hidden;
 
+            tb_PrimeraSalida.Text = "";
+            tb_NumElementos.Text = "";
+            cb_Valor.IsChecked = false;
+            tb_Registro1.Text = "";
+            tb_Registro2.Text = "";
+            tb_Registro3.Text = "";
+            tb_Registro4.Text = "";
+            tb_Registro5.Text = "";
+            tb_Registro6.Text = "";
+            tb_Registro7.Text = "";
+            tb_Registro8.Text = "";
+            rtb_Func.Visibility = Visibility.Hidden;
+            rtb_Func.Document.Blocks.Clear();
+
             Func_1.IsChecked = false;
             Func_3.IsChecked = true;
             Func_5.IsChecked = false;
@@ -229,6 +257,20 @@ namespace Cliente_ModbusTCP
             lb_Registro8.Visibility = Visibility.Hidden;
             tb_Registro8.Visibility = Visibility.Hidden;
             lb_0x8.Visibility = Visibility.Hidden;
+
+            tb_PrimeraSalida.Text = "";
+            tb_NumElementos.Text = "";
+            cb_Valor.IsChecked = false;
+            tb_Registro1.Text = "";
+            tb_Registro2.Text = "";
+            tb_Registro3.Text = "";
+            tb_Registro4.Text = "";
+            tb_Registro5.Text = "";
+            tb_Registro6.Text = "";
+            tb_Registro7.Text = "";
+            tb_Registro8.Text = "";
+            rtb_Func.Visibility = Visibility.Hidden;
+            rtb_Func.Document.Blocks.Clear();
 
             Func_1.IsChecked = false;
             Func_3.IsChecked = false;
@@ -278,6 +320,20 @@ namespace Cliente_ModbusTCP
             lb_Registro8.Visibility = Visibility.Hidden;
             tb_Registro8.Visibility = Visibility.Hidden;
             lb_0x8.Visibility = Visibility.Hidden;
+
+            tb_PrimeraSalida.Text = "";
+            tb_NumElementos.Text = "";
+            cb_Valor.IsChecked = false;
+            tb_Registro1.Text = "";
+            tb_Registro2.Text = "";
+            tb_Registro3.Text = "";
+            tb_Registro4.Text = "";
+            tb_Registro5.Text = "";
+            tb_Registro6.Text = "";
+            tb_Registro7.Text = "";
+            tb_Registro8.Text = "";
+            rtb_Func.Visibility = Visibility.Hidden;
+            rtb_Func.Document.Blocks.Clear();
 
             Func_1.IsChecked = false;
             Func_3.IsChecked = false;
@@ -405,38 +461,16 @@ namespace Cliente_ModbusTCP
 
         private void btn_Valores_Click(object sender, RoutedEventArgs e)
         {
-            if (Convert.ToUInt16(tb_NumElementos.Text) > 0)
+            try
             {
-                lb_Registro1.Visibility = Visibility.Visible;
-                tb_Registro1.Visibility = Visibility.Visible;
-                lb_0x1.Visibility = Visibility.Visible;
-                lb_Registro2.Visibility = Visibility.Hidden;
-                tb_Registro2.Visibility = Visibility.Hidden;
-                lb_0x2.Visibility = Visibility.Hidden;
-                lb_Registro3.Visibility = Visibility.Hidden;
-                tb_Registro3.Visibility = Visibility.Hidden;
-                lb_0x3.Visibility = Visibility.Hidden;
-                lb_Registro4.Visibility = Visibility.Hidden;
-                tb_Registro4.Visibility = Visibility.Hidden;
-                lb_0x4.Visibility = Visibility.Hidden;
-                lb_Registro5.Visibility = Visibility.Hidden;
-                tb_Registro5.Visibility = Visibility.Hidden;
-                lb_0x5.Visibility = Visibility.Hidden;
-                lb_Registro6.Visibility = Visibility.Hidden;
-                tb_Registro6.Visibility = Visibility.Hidden;
-                lb_0x6.Visibility = Visibility.Hidden;
-                lb_Registro7.Visibility = Visibility.Hidden;
-                tb_Registro7.Visibility = Visibility.Hidden;
-                lb_0x7.Visibility = Visibility.Hidden;
-                lb_Registro8.Visibility = Visibility.Hidden;
-                tb_Registro8.Visibility = Visibility.Hidden;
-                lb_0x8.Visibility = Visibility.Hidden;
-
-                if (Convert.ToUInt16(tb_NumElementos.Text) > 1)
+                if (Convert.ToUInt16(tb_NumElementos.Text) > 0)
                 {
-                    lb_Registro2.Visibility = Visibility.Visible;
-                    tb_Registro2.Visibility = Visibility.Visible;
-                    lb_0x2.Visibility = Visibility.Visible;
+                    lb_Registro1.Visibility = Visibility.Visible;
+                    tb_Registro1.Visibility = Visibility.Visible;
+                    lb_0x1.Visibility = Visibility.Visible;
+                    lb_Registro2.Visibility = Visibility.Hidden;
+                    tb_Registro2.Visibility = Visibility.Hidden;
+                    lb_0x2.Visibility = Visibility.Hidden;
                     lb_Registro3.Visibility = Visibility.Hidden;
                     tb_Registro3.Visibility = Visibility.Hidden;
                     lb_0x3.Visibility = Visibility.Hidden;
@@ -456,11 +490,14 @@ namespace Cliente_ModbusTCP
                     tb_Registro8.Visibility = Visibility.Hidden;
                     lb_0x8.Visibility = Visibility.Hidden;
 
-                    if (Convert.ToUInt16(tb_NumElementos.Text) > 2)
+                    if (Convert.ToUInt16(tb_NumElementos.Text) > 1)
                     {
-                        lb_Registro3.Visibility = Visibility.Visible;
-                        tb_Registro3.Visibility = Visibility.Visible;
-                        lb_0x3.Visibility = Visibility.Visible;
+                        lb_Registro2.Visibility = Visibility.Visible;
+                        tb_Registro2.Visibility = Visibility.Visible;
+                        lb_0x2.Visibility = Visibility.Visible;
+                        lb_Registro3.Visibility = Visibility.Hidden;
+                        tb_Registro3.Visibility = Visibility.Hidden;
+                        lb_0x3.Visibility = Visibility.Hidden;
                         lb_Registro4.Visibility = Visibility.Hidden;
                         tb_Registro4.Visibility = Visibility.Hidden;
                         lb_0x4.Visibility = Visibility.Hidden;
@@ -477,11 +514,14 @@ namespace Cliente_ModbusTCP
                         tb_Registro8.Visibility = Visibility.Hidden;
                         lb_0x8.Visibility = Visibility.Hidden;
 
-                        if (Convert.ToUInt16(tb_NumElementos.Text) > 3)
+                        if (Convert.ToUInt16(tb_NumElementos.Text) > 2)
                         {
-                            lb_Registro4.Visibility = Visibility.Visible;
-                            tb_Registro4.Visibility = Visibility.Visible;
-                            lb_0x4.Visibility = Visibility.Visible;
+                            lb_Registro3.Visibility = Visibility.Visible;
+                            tb_Registro3.Visibility = Visibility.Visible;
+                            lb_0x3.Visibility = Visibility.Visible;
+                            lb_Registro4.Visibility = Visibility.Hidden;
+                            tb_Registro4.Visibility = Visibility.Hidden;
+                            lb_0x4.Visibility = Visibility.Hidden;
                             lb_Registro5.Visibility = Visibility.Hidden;
                             tb_Registro5.Visibility = Visibility.Hidden;
                             lb_0x5.Visibility = Visibility.Hidden;
@@ -495,11 +535,14 @@ namespace Cliente_ModbusTCP
                             tb_Registro8.Visibility = Visibility.Hidden;
                             lb_0x8.Visibility = Visibility.Hidden;
 
-                            if (Convert.ToUInt16(tb_NumElementos.Text) > 4)
+                            if (Convert.ToUInt16(tb_NumElementos.Text) > 3)
                             {
-                                lb_Registro5.Visibility = Visibility.Visible;
-                                tb_Registro5.Visibility = Visibility.Visible;
-                                lb_0x5.Visibility = Visibility.Visible;
+                                lb_Registro4.Visibility = Visibility.Visible;
+                                tb_Registro4.Visibility = Visibility.Visible;
+                                lb_0x4.Visibility = Visibility.Visible;
+                                lb_Registro5.Visibility = Visibility.Hidden;
+                                tb_Registro5.Visibility = Visibility.Hidden;
+                                lb_0x5.Visibility = Visibility.Hidden;
                                 lb_Registro6.Visibility = Visibility.Hidden;
                                 tb_Registro6.Visibility = Visibility.Hidden;
                                 lb_0x6.Visibility = Visibility.Hidden;
@@ -510,11 +553,14 @@ namespace Cliente_ModbusTCP
                                 tb_Registro8.Visibility = Visibility.Hidden;
                                 lb_0x8.Visibility = Visibility.Hidden;
 
-                                if (Convert.ToUInt16(tb_NumElementos.Text) > 5)
+                                if (Convert.ToUInt16(tb_NumElementos.Text) > 4)
                                 {
-                                    lb_Registro6.Visibility = Visibility.Visible;
-                                    tb_Registro6.Visibility = Visibility.Visible;
-                                    lb_0x6.Visibility = Visibility.Visible;
+                                    lb_Registro5.Visibility = Visibility.Visible;
+                                    tb_Registro5.Visibility = Visibility.Visible;
+                                    lb_0x5.Visibility = Visibility.Visible;
+                                    lb_Registro6.Visibility = Visibility.Hidden;
+                                    tb_Registro6.Visibility = Visibility.Hidden;
+                                    lb_0x6.Visibility = Visibility.Hidden;
                                     lb_Registro7.Visibility = Visibility.Hidden;
                                     tb_Registro7.Visibility = Visibility.Hidden;
                                     lb_0x7.Visibility = Visibility.Hidden;
@@ -522,20 +568,33 @@ namespace Cliente_ModbusTCP
                                     tb_Registro8.Visibility = Visibility.Hidden;
                                     lb_0x8.Visibility = Visibility.Hidden;
 
-                                    if (Convert.ToUInt16(tb_NumElementos.Text) > 6)
+                                    if (Convert.ToUInt16(tb_NumElementos.Text) > 5)
                                     {
-                                        lb_Registro7.Visibility = Visibility.Visible;
-                                        tb_Registro7.Visibility = Visibility.Visible;
-                                        lb_0x7.Visibility = Visibility.Visible;
+                                        lb_Registro6.Visibility = Visibility.Visible;
+                                        tb_Registro6.Visibility = Visibility.Visible;
+                                        lb_0x6.Visibility = Visibility.Visible;
+                                        lb_Registro7.Visibility = Visibility.Hidden;
+                                        tb_Registro7.Visibility = Visibility.Hidden;
+                                        lb_0x7.Visibility = Visibility.Hidden;
                                         lb_Registro8.Visibility = Visibility.Hidden;
                                         tb_Registro8.Visibility = Visibility.Hidden;
                                         lb_0x8.Visibility = Visibility.Hidden;
 
-                                        if (Convert.ToUInt16(tb_NumElementos.Text) > 7)
+                                        if (Convert.ToUInt16(tb_NumElementos.Text) > 6)
                                         {
-                                            lb_Registro8.Visibility = Visibility.Visible;
-                                            tb_Registro8.Visibility = Visibility.Visible;
-                                            lb_0x8.Visibility = Visibility.Visible;
+                                            lb_Registro7.Visibility = Visibility.Visible;
+                                            tb_Registro7.Visibility = Visibility.Visible;
+                                            lb_0x7.Visibility = Visibility.Visible;
+                                            lb_Registro8.Visibility = Visibility.Hidden;
+                                            tb_Registro8.Visibility = Visibility.Hidden;
+                                            lb_0x8.Visibility = Visibility.Hidden;
+
+                                            if (Convert.ToUInt16(tb_NumElementos.Text) > 7)
+                                            {
+                                                lb_Registro8.Visibility = Visibility.Visible;
+                                                tb_Registro8.Visibility = Visibility.Visible;
+                                                lb_0x8.Visibility = Visibility.Visible;
+                                            }
                                         }
                                     }
                                 }
@@ -543,6 +602,10 @@ namespace Cliente_ModbusTCP
                         }
                     }
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Debe indicar el número de registros que desea modificar.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
             return;
@@ -745,6 +808,15 @@ namespace Cliente_ModbusTCP
                     }
 
                     dg_Salidas.ItemsSource = lista;
+                    rtb_Func.Document.Blocks.Clear();
+                    rtb_Func.Visibility = Visibility.Visible;
+
+                    for (int i = 0; i < respuesta[8] / 2; i++)
+                    {
+                        int registro = 0;
+                        registro = primera_Salida + 40001 + i;
+                        rtb_Func.AppendText("Registro " + registro + ": 0x" + respuesta[(i * 2) + 10].ToString("X2") + respuesta[(i * 2) + 9].ToString("X2") + "\r");
+                    }
                 }
             }
 

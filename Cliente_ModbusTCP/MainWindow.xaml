@@ -97,7 +97,15 @@
         <Label x:Name="lb_0x8" Content="0x" HorizontalAlignment="Left" Margin="639,366,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
         <TextBox x:Name="tb_Registro8" HorizontalAlignment="Left" Margin="660,370,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="45" Visibility="Hidden"/>
 
-        <DataGrid x:Name="dg_Salidas"  HorizontalAlignment="Left" Margin="16,253,0,0" VerticalAlignment="Top" VerticalScrollBarVisibility="Auto" Width="399" Height="167" MaxWidth="399" MaxHeight="167"/>
+        <DataGrid x:Name="dg_Salidas" HorizontalAlignment="Left" Margin="16,253,0,0" VerticalAlignment="Top" VerticalScrollBarVisibility="Auto" Width="274" Height="167" MaxWidth="399" MaxHeight="167"/>
+
+        <RichTextBox x:Name="rtb_Func" HorizontalAlignment="Left" Margin="320,253,0,0" VerticalAlignment="Top" IsReadOnly="True" ScrollViewer.VerticalScrollBarVisibility="Auto" Width="175" Height="167" MaxHeight="167" Visibility="Hidden">
+            <FlowDocument>
+                <Paragraph>
+                    <Run Text=""/>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
 
         <!-- Botones -->
         <Button x:Name="btn_Valores" Content="Valores" HorizontalAlignment="Left" Margin="365,213,0,0" VerticalAlignment="Top" Click="btn_Valores_Click" Width="50" Visibility="Hidden" IsEnabled="False"/>
