@@ -900,7 +900,7 @@ namespace Cliente_ModbusTCP
             int nBytesEnterosSalidas = num_Salidas * 2;
             int nBytesSalidas = nBytesEnterosSalidas;
 
-            byte[] peticion = new byte[15];
+            byte[] peticion = new byte[13 + nBytesSalidas];
             byte[] respuesta = new byte[256];
             byte[] parcial;
             int res;
