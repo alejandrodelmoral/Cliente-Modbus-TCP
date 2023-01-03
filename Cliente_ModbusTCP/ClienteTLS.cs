@@ -167,18 +167,18 @@ namespace Cliente_ModbusTCP
                 {
                     int res;
 
-                    while (leidos < dimMax)
-                    {
-                        res = streamTLS.Read(datos, leidos, dimMax - leidos);
+                    //while (leidos < dimMax)
+                    //{
+                        res = streamTLS.Read(datos, 0, dimMax);
 
                         if (res > 0)
                         {
                             leidos += res;
-                            streamTLS.ReadTimeout = 100;
+                            //streamTLS.ReadTimeout = 100;
                         }
                         else if (res == 0)
-                            break;
-                    }
+                            ;
+                    //}
 
                     return leidos;
                 }

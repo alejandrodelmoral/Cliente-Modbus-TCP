@@ -937,8 +937,8 @@ namespace Cliente_ModbusTCP
             // peticion[13 ... 28]
             if (num_Salidas > 0)
             {
-                string primbyte = tb_Registro1.Text.Substring(0, 2);
-                string segubyte = tb_Registro1.Text.Substring(2, 2);
+                //string primbyte = tb_Registro1.Text.Substring(0, 2);
+                //string segubyte = tb_Registro1.Text.Substring(2, 2);
                 peticion[13] = (byte)int.Parse(tb_Registro1.Text.Substring(0, 2), System.Globalization.NumberStyles.HexNumber);
                 peticion[14] = (byte)int.Parse(tb_Registro1.Text.Substring(2, 2), System.Globalization.NumberStyles.HexNumber);
 
