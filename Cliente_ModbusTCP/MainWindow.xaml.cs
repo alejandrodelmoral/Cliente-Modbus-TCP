@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace Cliente_ModbusTCP
 {
@@ -24,11 +25,48 @@ namespace Cliente_ModbusTCP
         ushort num_mensaje = 0;
         bool seguro = false;
         bool enter = false;
+        bool valores = false;
         byte[] parte_func16;
+        int cont = 0;
+        ushort num_Salidas = 0;
+        int nBytesEnterosSalidas = 0;
+        private DispatcherTimer Temp_Func16;
 
         public MainWindow()
         {
             InitializeComponent();
+            Temp_Func16 = new DispatcherTimer();
+            Temp_Func16.Interval = new TimeSpan(0, 0, 0, 0, 50);
+            Temp_Func16.Tick += new EventHandler(Tick_Func16);
+            Temp_Func16.Start();
+        }
+
+        private void Tick_Func16(object sender, EventArgs e)
+        {
+            if (valores)
+            {
+                byte[] parcial;
+                tb_parte_func16.IsEnabled = true;
+                lb_parte_func16.Content = "Registro " + (cont + 1) + ":";
+
+                if (enter && cont < num_Salidas)
+                {
+                    parcial = BitConverter.GetBytes(int.Parse(tb_parte_func16.Text, System.Globalization.NumberStyles.HexNumber));
+                    Array.Reverse(parcial, 0, 2);
+                    Array.Copy(parcial, 0, parte_func16, cont * 2, 2);
+                    cont++;
+                    tb_parte_func16.Text = "";
+                    enter = false;
+                }
+
+                if (cont == num_Salidas)
+                {
+                    valores = false;
+                    cont = 0;
+                    tb_parte_func16.IsEnabled = false;
+                    tb_parte_func16.Text = "Pulse el botón Petición";
+                }
+            }
         }
 
         /*-- Menú Servidores --*/
@@ -65,7 +103,7 @@ namespace Cliente_ModbusTCP
             return;
         }
         /*---------------------*/
-        
+
         /*-- Menú Seguridad --*/
         private void TLS_Click(object sender, RoutedEventArgs e)
         {
@@ -351,10 +389,10 @@ namespace Cliente_ModbusTCP
             sobre.Show();
         }
         /*----------------*/
-        
+
         /*-- Botones --*/
         private void btn_Conectar_Click(object sender, RoutedEventArgs e)
-        { 
+        {
             if (!conectado)
             {
                 if (TLS.IsChecked == true)
@@ -445,6 +483,8 @@ namespace Cliente_ModbusTCP
         {
             if ((cliente != null) || (clienteTLS != null))
             {
+                tb_parte_func16.Text = "";
+
                 if (Func_1.IsChecked == true)
                     Funcion1();
 
@@ -463,23 +503,24 @@ namespace Cliente_ModbusTCP
 
         private void btn_Valores_Click(object sender, RoutedEventArgs e)
         {
-            ushort num_Salidas = Convert.ToUInt16(tb_NumElementos.Text);
-            int nBytesEnterosSalidas = num_Salidas * 2;
+            num_Salidas = Convert.ToUInt16(tb_NumElementos.Text);
+            nBytesEnterosSalidas = num_Salidas * 2;
             parte_func16 = new byte[nBytesEnterosSalidas];
-            string hola = "de02";
 
-            for (int i = 0; i < num_Salidas; i++)
-            {
-                lb_parte_func16.Content = "Registro " + (i + 1) + ":";
-                tb_parte_func16.Text = "";
+            valores = true;
 
-                //while (!enter) ;
+            //for (int i = 0; i < num_Salidas; i++)
+            //{
+            //    lb_parte_func16.Content = "Registro " + (i + 1) + ":";
+            //    tb_parte_func16.Text = "";
 
-                parte_func16[i * 2] = (byte)int.Parse(hola.Substring(0, 2), System.Globalization.NumberStyles.HexNumber);
-                parte_func16[(i * 2) + 1] = (byte)int.Parse(hola.Substring(2, 2), System.Globalization.NumberStyles.HexNumber);
+            //    while (!enter) ;
 
-                enter = false;
-            }
+            //    parte_func16[i * 2] = (byte)int.Parse(hola.Substring(0, 2), System.Globalization.NumberStyles.HexNumber);
+            //    parte_func16[(i * 2) + 1] = (byte)int.Parse(hola.Substring(2, 2), System.Globalization.NumberStyles.HexNumber);
+
+            //    enter = false;
+            //}
 
             //try
             //{
@@ -646,7 +687,7 @@ namespace Cliente_ModbusTCP
                     cliente = null;
                 }
             }
-            
+
             Close();
             return;
         }
@@ -969,10 +1010,11 @@ namespace Cliente_ModbusTCP
             //{
             //    //string primbyte = tb_Registro1.Text.Substring(0, 2);
             //    //string segubyte = tb_Registro1.Text.Substring(2, 2);
-            //    peticion[13] = (byte)int.Parse(tb_Registro1.Text.Substring(0, 2), System.Globalization.NumberStyles.HexNumber);
-            //    peticion[14] = (byte)int.Parse(tb_Registro1.Text.Substring(2, 2), System.Globalization.NumberStyles.HexNumber);
+            //    //peticion[13] = (byte)int.Parse(tb_Registro1.Text.Substring(0, 2), System.Globalization.NumberStyles.HexNumber);
+            //    //peticion[14] = (byte)int.Parse(tb_Registro1.Text.Substring(2, 2), System.Globalization.NumberStyles.HexNumber);
 
-            //    //parcial = BitConverter.GetBytes((ushort)Convert.ToUInt16(tb_Registro1.Text));
+
+            //    //parcial = BitConverter.GetBytes(int.Parse(tb_Registro1.Text, System.Globalization.NumberStyles.HexNumber));
             //    //Array.Reverse(parcial, 0, 2);
             //    //Array.Copy(parcial, 0, peticion, 13, 2);
 
