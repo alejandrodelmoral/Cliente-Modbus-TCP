@@ -66,7 +66,14 @@
         <CheckBox x:Name="cb_Valor" Content="ON / OFF" HorizontalAlignment="Left" Margin="345,216,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
 
         <Label x:Name="lb_parte_func16" Content="" HorizontalAlignment="Left" Margin="394,210,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
-        <TextBox x:Name="tb_parte_func16" HorizontalAlignment="Left" Margin="475,214,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="35" KeyDown="tb_parte_func16_KeyDown" Visibility="Hidden"/>
+        <TextBox x:Name="tb_parte_func16" HorizontalAlignment="Left" Margin="500,214,0,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" Width="40" KeyDown="tb_parte_func16_KeyDown" Visibility="Hidden" MaxLength="4"/>
+        <Label x:Name="lb_AyudaParteFunc16" FontSize="9" HorizontalAlignment="Left" Margin="535,211,0,0" VerticalAlignment="Top">
+            <Label.Foreground>
+                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.GrayTextColorKey}}"/>
+            </Label.Foreground>
+        </Label>
+        <RadioButton x:Name="rbtn_Hex" Content="Hex" HorizontalAlignment="Left" Margin="320,244,0,0" VerticalAlignment="Top" IsChecked="True" Visibility="Hidden"/>
+        <RadioButton x:Name="rbtn_Dec" Content="Dec" HorizontalAlignment="Left" Margin="320,262,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
 
         <DataGrid x:Name="dg_Salidas" HorizontalAlignment="Left" Margin="16,253,0,0" VerticalAlignment="Top" VerticalScrollBarVisibility="Auto" Width="274" Height="167" MaxWidth="399" MaxHeight="167"/>
 

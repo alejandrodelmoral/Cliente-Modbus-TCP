@@ -139,6 +139,11 @@ namespace Cliente_ModbusTCP
             lb_parte_func16.Visibility = Visibility.Hidden;
             tb_parte_func16.Visibility = Visibility.Hidden;
             tb_parte_func16.Width = 35;
+            lb_AyudaParteFunc16.Content = "";
+            rbtn_Hex.Visibility = Visibility.Hidden;
+            rbtn_Dec.Visibility = Visibility.Hidden;
+            rbtn_Hex.IsChecked = true;
+            rbtn_Dec.IsChecked = false;
 
             tb_PrimeraSalida.Text = "";
             tb_NumElementos.Text = "";
@@ -172,6 +177,11 @@ namespace Cliente_ModbusTCP
             lb_parte_func16.Visibility = Visibility.Hidden;
             tb_parte_func16.Visibility = Visibility.Hidden;
             tb_parte_func16.Width = 35;
+            lb_AyudaParteFunc16.Content = "";
+            rbtn_Hex.Visibility = Visibility.Hidden;
+            rbtn_Dec.Visibility = Visibility.Hidden;
+            rbtn_Hex.IsChecked = true;
+            rbtn_Dec.IsChecked = false;
 
             tb_PrimeraSalida.Text = "";
             tb_NumElementos.Text = "";
@@ -204,6 +214,11 @@ namespace Cliente_ModbusTCP
             lb_parte_func16.Visibility = Visibility.Hidden;
             tb_parte_func16.Visibility = Visibility.Hidden;
             tb_parte_func16.Width = 35;
+            lb_AyudaParteFunc16.Content = "";
+            rbtn_Hex.Visibility = Visibility.Hidden;
+            rbtn_Dec.Visibility = Visibility.Hidden;
+            rbtn_Hex.IsChecked = true;
+            rbtn_Dec.IsChecked = false;
 
             tb_PrimeraSalida.Text = "";
             tb_NumElementos.Text = "";
@@ -237,6 +252,13 @@ namespace Cliente_ModbusTCP
             lb_parte_func16.Visibility = Visibility.Hidden;
             tb_parte_func16.Visibility = Visibility.Hidden;
             tb_parte_func16.Width = 35;
+            lb_AyudaParteFunc16.Content = "";
+            rbtn_Hex.Visibility = Visibility.Hidden;
+            rbtn_Dec.Visibility = Visibility.Hidden;
+            rbtn_Hex.IsChecked = true;
+            rbtn_Dec.IsChecked = false;
+            tb_parte_func16.Margin = new Thickness(500, 214, 0, 0);
+            lb_AyudaParteFunc16.Margin = new Thickness(535, 211, 0, 0);
 
             tb_PrimeraSalida.Text = "";
             tb_NumElementos.Text = "";
@@ -385,6 +407,9 @@ namespace Cliente_ModbusTCP
                 tb_parte_func16.Visibility = Visibility.Visible;
                 tb_parte_func16.Width = 35;
 
+                rbtn_Hex.Visibility = Visibility.Visible;
+                rbtn_Dec.Visibility = Visibility.Visible;
+
                 valores = true;
 
                 return;
@@ -433,17 +458,44 @@ namespace Cliente_ModbusTCP
             if (valores)
             {
                 byte[] parcial;
+                int registro;
 
-                lb_parte_func16.Content = "Registro " + (cont + 1) + ": 0x";
+                registro = Convert.ToUInt16(tb_PrimeraSalida.Text) + cont;
+
+                lb_AyudaParteFunc16.Content = "(Pulse Intro para avanzar)";
                 tb_parte_func16.IsEnabled = true;
+
+                if (rbtn_Dec.IsChecked == true)
+                {
+                    tb_parte_func16.MaxLength = 5;
+                    lb_parte_func16.Content = "Registro " + registro + ": 10x";
+                    tb_parte_func16.Margin = new Thickness(505, 214, 0, 0);
+                    lb_AyudaParteFunc16.Margin = new Thickness(540, 211, 0, 0);
+                }
+                else
+                {
+                    tb_parte_func16.MaxLength = 4;
+                    lb_parte_func16.Content = "Registro " + registro + ": 0x";
+                    tb_parte_func16.Margin = new Thickness(500, 214, 0, 0);
+                    lb_AyudaParteFunc16.Margin = new Thickness(535, 211, 0, 0);
+                }
 
                 try
                 {
                     if (enter && cont < num_Salidas)
                     {
-                        parcial = BitConverter.GetBytes(int.Parse(tb_parte_func16.Text, System.Globalization.NumberStyles.HexNumber));
-                        Array.Reverse(parcial, 0, 2);
-                        Array.Copy(parcial, 0, parte_func16, cont * 2, 2);
+                        if (rbtn_Dec.IsChecked == true)
+                        {
+                            parcial = BitConverter.GetBytes(int.Parse(tb_parte_func16.Text));
+                            Array.Reverse(parcial, 0, 2);
+                            Array.Copy(parcial, 0, parte_func16, cont * 2, 2);
+                        }
+                        else
+                        {
+                            parcial = BitConverter.GetBytes(int.Parse(tb_parte_func16.Text, System.Globalization.NumberStyles.HexNumber));
+                            Array.Reverse(parcial, 0, 2);
+                            Array.Copy(parcial, 0, parte_func16, cont * 2, 2);
+                        }
 
                         cont++;
                         tb_parte_func16.Text = "";
@@ -463,6 +515,7 @@ namespace Cliente_ModbusTCP
                     cont = 0;
                     tb_parte_func16.IsEnabled = false;
                     tb_parte_func16.Width = 130;
+                    lb_AyudaParteFunc16.Content = "";
                     tb_parte_func16.Text = "Pulse el botón Petición";
                 }
             }
@@ -660,7 +713,7 @@ namespace Cliente_ModbusTCP
                     for (int i = 0; i < respuesta[8] / 2; i++)
                     {
                         int registro = 0;
-                        registro = primera_Salida + 40001 + i;
+                        registro = Convert.ToUInt16(tb_PrimeraSalida.Text) + i;
                         rtb_Func.AppendText("Registro " + registro + ": 0x" + respuesta[(i * 2) + 10].ToString("X2") + respuesta[(i * 2) + 9].ToString("X2") + "\r");
                     }
                 }
