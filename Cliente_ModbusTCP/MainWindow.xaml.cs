@@ -23,6 +23,8 @@ namespace Cliente_ModbusTCP
         bool conectado = false;
         ushort num_mensaje = 0;
         bool seguro = false;
+        bool enter = false;
+        byte[] parte_func16;
 
         public MainWindow()
         {
@@ -461,152 +463,170 @@ namespace Cliente_ModbusTCP
 
         private void btn_Valores_Click(object sender, RoutedEventArgs e)
         {
-            try
+            ushort num_Salidas = Convert.ToUInt16(tb_NumElementos.Text);
+            int nBytesEnterosSalidas = num_Salidas * 2;
+            parte_func16 = new byte[nBytesEnterosSalidas];
+            string hola = "de02";
+
+            for (int i = 0; i < num_Salidas; i++)
             {
-                if (Convert.ToUInt16(tb_NumElementos.Text) > 0)
-                {
-                    lb_Registro1.Visibility = Visibility.Visible;
-                    tb_Registro1.Visibility = Visibility.Visible;
-                    lb_0x1.Visibility = Visibility.Visible;
-                    lb_Registro2.Visibility = Visibility.Hidden;
-                    tb_Registro2.Visibility = Visibility.Hidden;
-                    lb_0x2.Visibility = Visibility.Hidden;
-                    lb_Registro3.Visibility = Visibility.Hidden;
-                    tb_Registro3.Visibility = Visibility.Hidden;
-                    lb_0x3.Visibility = Visibility.Hidden;
-                    lb_Registro4.Visibility = Visibility.Hidden;
-                    tb_Registro4.Visibility = Visibility.Hidden;
-                    lb_0x4.Visibility = Visibility.Hidden;
-                    lb_Registro5.Visibility = Visibility.Hidden;
-                    tb_Registro5.Visibility = Visibility.Hidden;
-                    lb_0x5.Visibility = Visibility.Hidden;
-                    lb_Registro6.Visibility = Visibility.Hidden;
-                    tb_Registro6.Visibility = Visibility.Hidden;
-                    lb_0x6.Visibility = Visibility.Hidden;
-                    lb_Registro7.Visibility = Visibility.Hidden;
-                    tb_Registro7.Visibility = Visibility.Hidden;
-                    lb_0x7.Visibility = Visibility.Hidden;
-                    lb_Registro8.Visibility = Visibility.Hidden;
-                    tb_Registro8.Visibility = Visibility.Hidden;
-                    lb_0x8.Visibility = Visibility.Hidden;
+                lb_parte_func16.Content = "Registro " + (i + 1) + ":";
+                tb_parte_func16.Text = "";
 
-                    if (Convert.ToUInt16(tb_NumElementos.Text) > 1)
-                    {
-                        lb_Registro2.Visibility = Visibility.Visible;
-                        tb_Registro2.Visibility = Visibility.Visible;
-                        lb_0x2.Visibility = Visibility.Visible;
-                        lb_Registro3.Visibility = Visibility.Hidden;
-                        tb_Registro3.Visibility = Visibility.Hidden;
-                        lb_0x3.Visibility = Visibility.Hidden;
-                        lb_Registro4.Visibility = Visibility.Hidden;
-                        tb_Registro4.Visibility = Visibility.Hidden;
-                        lb_0x4.Visibility = Visibility.Hidden;
-                        lb_Registro5.Visibility = Visibility.Hidden;
-                        tb_Registro5.Visibility = Visibility.Hidden;
-                        lb_0x5.Visibility = Visibility.Hidden;
-                        lb_Registro6.Visibility = Visibility.Hidden;
-                        tb_Registro6.Visibility = Visibility.Hidden;
-                        lb_0x6.Visibility = Visibility.Hidden;
-                        lb_Registro7.Visibility = Visibility.Hidden;
-                        tb_Registro7.Visibility = Visibility.Hidden;
-                        lb_0x7.Visibility = Visibility.Hidden;
-                        lb_Registro8.Visibility = Visibility.Hidden;
-                        tb_Registro8.Visibility = Visibility.Hidden;
-                        lb_0x8.Visibility = Visibility.Hidden;
+                //while (!enter) ;
 
-                        if (Convert.ToUInt16(tb_NumElementos.Text) > 2)
-                        {
-                            lb_Registro3.Visibility = Visibility.Visible;
-                            tb_Registro3.Visibility = Visibility.Visible;
-                            lb_0x3.Visibility = Visibility.Visible;
-                            lb_Registro4.Visibility = Visibility.Hidden;
-                            tb_Registro4.Visibility = Visibility.Hidden;
-                            lb_0x4.Visibility = Visibility.Hidden;
-                            lb_Registro5.Visibility = Visibility.Hidden;
-                            tb_Registro5.Visibility = Visibility.Hidden;
-                            lb_0x5.Visibility = Visibility.Hidden;
-                            lb_Registro6.Visibility = Visibility.Hidden;
-                            tb_Registro6.Visibility = Visibility.Hidden;
-                            lb_0x6.Visibility = Visibility.Hidden;
-                            lb_Registro7.Visibility = Visibility.Hidden;
-                            tb_Registro7.Visibility = Visibility.Hidden;
-                            lb_0x7.Visibility = Visibility.Hidden;
-                            lb_Registro8.Visibility = Visibility.Hidden;
-                            tb_Registro8.Visibility = Visibility.Hidden;
-                            lb_0x8.Visibility = Visibility.Hidden;
+                parte_func16[i * 2] = (byte)int.Parse(hola.Substring(0, 2), System.Globalization.NumberStyles.HexNumber);
+                parte_func16[(i * 2) + 1] = (byte)int.Parse(hola.Substring(2, 2), System.Globalization.NumberStyles.HexNumber);
 
-                            if (Convert.ToUInt16(tb_NumElementos.Text) > 3)
-                            {
-                                lb_Registro4.Visibility = Visibility.Visible;
-                                tb_Registro4.Visibility = Visibility.Visible;
-                                lb_0x4.Visibility = Visibility.Visible;
-                                lb_Registro5.Visibility = Visibility.Hidden;
-                                tb_Registro5.Visibility = Visibility.Hidden;
-                                lb_0x5.Visibility = Visibility.Hidden;
-                                lb_Registro6.Visibility = Visibility.Hidden;
-                                tb_Registro6.Visibility = Visibility.Hidden;
-                                lb_0x6.Visibility = Visibility.Hidden;
-                                lb_Registro7.Visibility = Visibility.Hidden;
-                                tb_Registro7.Visibility = Visibility.Hidden;
-                                lb_0x7.Visibility = Visibility.Hidden;
-                                lb_Registro8.Visibility = Visibility.Hidden;
-                                tb_Registro8.Visibility = Visibility.Hidden;
-                                lb_0x8.Visibility = Visibility.Hidden;
-
-                                if (Convert.ToUInt16(tb_NumElementos.Text) > 4)
-                                {
-                                    lb_Registro5.Visibility = Visibility.Visible;
-                                    tb_Registro5.Visibility = Visibility.Visible;
-                                    lb_0x5.Visibility = Visibility.Visible;
-                                    lb_Registro6.Visibility = Visibility.Hidden;
-                                    tb_Registro6.Visibility = Visibility.Hidden;
-                                    lb_0x6.Visibility = Visibility.Hidden;
-                                    lb_Registro7.Visibility = Visibility.Hidden;
-                                    tb_Registro7.Visibility = Visibility.Hidden;
-                                    lb_0x7.Visibility = Visibility.Hidden;
-                                    lb_Registro8.Visibility = Visibility.Hidden;
-                                    tb_Registro8.Visibility = Visibility.Hidden;
-                                    lb_0x8.Visibility = Visibility.Hidden;
-
-                                    if (Convert.ToUInt16(tb_NumElementos.Text) > 5)
-                                    {
-                                        lb_Registro6.Visibility = Visibility.Visible;
-                                        tb_Registro6.Visibility = Visibility.Visible;
-                                        lb_0x6.Visibility = Visibility.Visible;
-                                        lb_Registro7.Visibility = Visibility.Hidden;
-                                        tb_Registro7.Visibility = Visibility.Hidden;
-                                        lb_0x7.Visibility = Visibility.Hidden;
-                                        lb_Registro8.Visibility = Visibility.Hidden;
-                                        tb_Registro8.Visibility = Visibility.Hidden;
-                                        lb_0x8.Visibility = Visibility.Hidden;
-
-                                        if (Convert.ToUInt16(tb_NumElementos.Text) > 6)
-                                        {
-                                            lb_Registro7.Visibility = Visibility.Visible;
-                                            tb_Registro7.Visibility = Visibility.Visible;
-                                            lb_0x7.Visibility = Visibility.Visible;
-                                            lb_Registro8.Visibility = Visibility.Hidden;
-                                            tb_Registro8.Visibility = Visibility.Hidden;
-                                            lb_0x8.Visibility = Visibility.Hidden;
-
-                                            if (Convert.ToUInt16(tb_NumElementos.Text) > 7)
-                                            {
-                                                lb_Registro8.Visibility = Visibility.Visible;
-                                                tb_Registro8.Visibility = Visibility.Visible;
-                                                lb_0x8.Visibility = Visibility.Visible;
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
+                enter = false;
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Debe indicar el número de registros que desea modificar.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+
+            //try
+            //{
+            //    if (Convert.ToUInt16(tb_NumElementos.Text) > 0)
+            //    {
+            //        lb_Registro1.Visibility = Visibility.Visible;
+            //        tb_Registro1.Visibility = Visibility.Visible;
+            //        lb_0x1.Visibility = Visibility.Visible;
+            //        lb_Registro2.Visibility = Visibility.Hidden;
+            //        tb_Registro2.Visibility = Visibility.Hidden;
+            //        lb_0x2.Visibility = Visibility.Hidden;
+            //        lb_Registro3.Visibility = Visibility.Hidden;
+            //        tb_Registro3.Visibility = Visibility.Hidden;
+            //        lb_0x3.Visibility = Visibility.Hidden;
+            //        lb_Registro4.Visibility = Visibility.Hidden;
+            //        tb_Registro4.Visibility = Visibility.Hidden;
+            //        lb_0x4.Visibility = Visibility.Hidden;
+            //        lb_Registro5.Visibility = Visibility.Hidden;
+            //        tb_Registro5.Visibility = Visibility.Hidden;
+            //        lb_0x5.Visibility = Visibility.Hidden;
+            //        lb_Registro6.Visibility = Visibility.Hidden;
+            //        tb_Registro6.Visibility = Visibility.Hidden;
+            //        lb_0x6.Visibility = Visibility.Hidden;
+            //        lb_Registro7.Visibility = Visibility.Hidden;
+            //        tb_Registro7.Visibility = Visibility.Hidden;
+            //        lb_0x7.Visibility = Visibility.Hidden;
+            //        lb_Registro8.Visibility = Visibility.Hidden;
+            //        tb_Registro8.Visibility = Visibility.Hidden;
+            //        lb_0x8.Visibility = Visibility.Hidden;
+
+            //        if (Convert.ToUInt16(tb_NumElementos.Text) > 1)
+            //        {
+            //            lb_Registro2.Visibility = Visibility.Visible;
+            //            tb_Registro2.Visibility = Visibility.Visible;
+            //            lb_0x2.Visibility = Visibility.Visible;
+            //            lb_Registro3.Visibility = Visibility.Hidden;
+            //            tb_Registro3.Visibility = Visibility.Hidden;
+            //            lb_0x3.Visibility = Visibility.Hidden;
+            //            lb_Registro4.Visibility = Visibility.Hidden;
+            //            tb_Registro4.Visibility = Visibility.Hidden;
+            //            lb_0x4.Visibility = Visibility.Hidden;
+            //            lb_Registro5.Visibility = Visibility.Hidden;
+            //            tb_Registro5.Visibility = Visibility.Hidden;
+            //            lb_0x5.Visibility = Visibility.Hidden;
+            //            lb_Registro6.Visibility = Visibility.Hidden;
+            //            tb_Registro6.Visibility = Visibility.Hidden;
+            //            lb_0x6.Visibility = Visibility.Hidden;
+            //            lb_Registro7.Visibility = Visibility.Hidden;
+            //            tb_Registro7.Visibility = Visibility.Hidden;
+            //            lb_0x7.Visibility = Visibility.Hidden;
+            //            lb_Registro8.Visibility = Visibility.Hidden;
+            //            tb_Registro8.Visibility = Visibility.Hidden;
+            //            lb_0x8.Visibility = Visibility.Hidden;
+
+            //            if (Convert.ToUInt16(tb_NumElementos.Text) > 2)
+            //            {
+            //                lb_Registro3.Visibility = Visibility.Visible;
+            //                tb_Registro3.Visibility = Visibility.Visible;
+            //                lb_0x3.Visibility = Visibility.Visible;
+            //                lb_Registro4.Visibility = Visibility.Hidden;
+            //                tb_Registro4.Visibility = Visibility.Hidden;
+            //                lb_0x4.Visibility = Visibility.Hidden;
+            //                lb_Registro5.Visibility = Visibility.Hidden;
+            //                tb_Registro5.Visibility = Visibility.Hidden;
+            //                lb_0x5.Visibility = Visibility.Hidden;
+            //                lb_Registro6.Visibility = Visibility.Hidden;
+            //                tb_Registro6.Visibility = Visibility.Hidden;
+            //                lb_0x6.Visibility = Visibility.Hidden;
+            //                lb_Registro7.Visibility = Visibility.Hidden;
+            //                tb_Registro7.Visibility = Visibility.Hidden;
+            //                lb_0x7.Visibility = Visibility.Hidden;
+            //                lb_Registro8.Visibility = Visibility.Hidden;
+            //                tb_Registro8.Visibility = Visibility.Hidden;
+            //                lb_0x8.Visibility = Visibility.Hidden;
+
+            //                if (Convert.ToUInt16(tb_NumElementos.Text) > 3)
+            //                {
+            //                    lb_Registro4.Visibility = Visibility.Visible;
+            //                    tb_Registro4.Visibility = Visibility.Visible;
+            //                    lb_0x4.Visibility = Visibility.Visible;
+            //                    lb_Registro5.Visibility = Visibility.Hidden;
+            //                    tb_Registro5.Visibility = Visibility.Hidden;
+            //                    lb_0x5.Visibility = Visibility.Hidden;
+            //                    lb_Registro6.Visibility = Visibility.Hidden;
+            //                    tb_Registro6.Visibility = Visibility.Hidden;
+            //                    lb_0x6.Visibility = Visibility.Hidden;
+            //                    lb_Registro7.Visibility = Visibility.Hidden;
+            //                    tb_Registro7.Visibility = Visibility.Hidden;
+            //                    lb_0x7.Visibility = Visibility.Hidden;
+            //                    lb_Registro8.Visibility = Visibility.Hidden;
+            //                    tb_Registro8.Visibility = Visibility.Hidden;
+            //                    lb_0x8.Visibility = Visibility.Hidden;
+
+            //                    if (Convert.ToUInt16(tb_NumElementos.Text) > 4)
+            //                    {
+            //                        lb_Registro5.Visibility = Visibility.Visible;
+            //                        tb_Registro5.Visibility = Visibility.Visible;
+            //                        lb_0x5.Visibility = Visibility.Visible;
+            //                        lb_Registro6.Visibility = Visibility.Hidden;
+            //                        tb_Registro6.Visibility = Visibility.Hidden;
+            //                        lb_0x6.Visibility = Visibility.Hidden;
+            //                        lb_Registro7.Visibility = Visibility.Hidden;
+            //                        tb_Registro7.Visibility = Visibility.Hidden;
+            //                        lb_0x7.Visibility = Visibility.Hidden;
+            //                        lb_Registro8.Visibility = Visibility.Hidden;
+            //                        tb_Registro8.Visibility = Visibility.Hidden;
+            //                        lb_0x8.Visibility = Visibility.Hidden;
+
+            //                        if (Convert.ToUInt16(tb_NumElementos.Text) > 5)
+            //                        {
+            //                            lb_Registro6.Visibility = Visibility.Visible;
+            //                            tb_Registro6.Visibility = Visibility.Visible;
+            //                            lb_0x6.Visibility = Visibility.Visible;
+            //                            lb_Registro7.Visibility = Visibility.Hidden;
+            //                            tb_Registro7.Visibility = Visibility.Hidden;
+            //                            lb_0x7.Visibility = Visibility.Hidden;
+            //                            lb_Registro8.Visibility = Visibility.Hidden;
+            //                            tb_Registro8.Visibility = Visibility.Hidden;
+            //                            lb_0x8.Visibility = Visibility.Hidden;
+
+            //                            if (Convert.ToUInt16(tb_NumElementos.Text) > 6)
+            //                            {
+            //                                lb_Registro7.Visibility = Visibility.Visible;
+            //                                tb_Registro7.Visibility = Visibility.Visible;
+            //                                lb_0x7.Visibility = Visibility.Visible;
+            //                                lb_Registro8.Visibility = Visibility.Hidden;
+            //                                tb_Registro8.Visibility = Visibility.Hidden;
+            //                                lb_0x8.Visibility = Visibility.Hidden;
+
+            //                                if (Convert.ToUInt16(tb_NumElementos.Text) > 7)
+            //                                {
+            //                                    lb_Registro8.Visibility = Visibility.Visible;
+            //                                    tb_Registro8.Visibility = Visibility.Visible;
+            //                                    lb_0x8.Visibility = Visibility.Visible;
+            //                                }
+            //                            }
+            //                        }
+            //                    }
+            //                }
+            //            }
+            //        }
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("Debe indicar el número de registros que desea modificar.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            //}
 
             return;
         }
@@ -628,6 +648,16 @@ namespace Cliente_ModbusTCP
             }
             
             Close();
+            return;
+        }
+
+        private void tb_parte_func16_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+                enter = true;
+            else
+                enter = false;
+
             return;
         }
         /*-------------*/
@@ -935,55 +965,61 @@ namespace Cliente_ModbusTCP
             peticion[12] = (byte)nBytesSalidas;
 
             // peticion[13 ... 28]
-            if (num_Salidas > 0)
-            {
-                //string primbyte = tb_Registro1.Text.Substring(0, 2);
-                //string segubyte = tb_Registro1.Text.Substring(2, 2);
-                peticion[13] = (byte)int.Parse(tb_Registro1.Text.Substring(0, 2), System.Globalization.NumberStyles.HexNumber);
-                peticion[14] = (byte)int.Parse(tb_Registro1.Text.Substring(2, 2), System.Globalization.NumberStyles.HexNumber);
+            //if (num_Salidas > 0)
+            //{
+            //    //string primbyte = tb_Registro1.Text.Substring(0, 2);
+            //    //string segubyte = tb_Registro1.Text.Substring(2, 2);
+            //    peticion[13] = (byte)int.Parse(tb_Registro1.Text.Substring(0, 2), System.Globalization.NumberStyles.HexNumber);
+            //    peticion[14] = (byte)int.Parse(tb_Registro1.Text.Substring(2, 2), System.Globalization.NumberStyles.HexNumber);
 
-                if (num_Salidas > 1)
-                {
-                    peticion[15] = (byte)int.Parse(tb_Registro2.Text.Substring(0, 2), System.Globalization.NumberStyles.HexNumber);
-                    peticion[16] = (byte)int.Parse(tb_Registro2.Text.Substring(2, 2), System.Globalization.NumberStyles.HexNumber);
+            //    //parcial = BitConverter.GetBytes((ushort)Convert.ToUInt16(tb_Registro1.Text));
+            //    //Array.Reverse(parcial, 0, 2);
+            //    //Array.Copy(parcial, 0, peticion, 13, 2);
 
-                    if (num_Salidas > 2)
-                    {
-                        peticion[17] = (byte)int.Parse(tb_Registro3.Text.Substring(0, 2), System.Globalization.NumberStyles.HexNumber);
-                        peticion[18] = (byte)int.Parse(tb_Registro3.Text.Substring(2, 2), System.Globalization.NumberStyles.HexNumber);
+            //    if (num_Salidas > 1)
+            //    {
+            //        peticion[15] = (byte)int.Parse(tb_Registro2.Text.Substring(0, 2), System.Globalization.NumberStyles.HexNumber);
+            //        peticion[16] = (byte)int.Parse(tb_Registro2.Text.Substring(2, 2), System.Globalization.NumberStyles.HexNumber);
 
-                        if (num_Salidas > 3)
-                        {
-                            peticion[19] = (byte)int.Parse(tb_Registro4.Text.Substring(0, 2), System.Globalization.NumberStyles.HexNumber);
-                            peticion[20] = (byte)int.Parse(tb_Registro4.Text.Substring(2, 2), System.Globalization.NumberStyles.HexNumber);
+            //        if (num_Salidas > 2)
+            //        {
+            //            peticion[17] = (byte)int.Parse(tb_Registro3.Text.Substring(0, 2), System.Globalization.NumberStyles.HexNumber);
+            //            peticion[18] = (byte)int.Parse(tb_Registro3.Text.Substring(2, 2), System.Globalization.NumberStyles.HexNumber);
 
-                            if (num_Salidas > 4)
-                            {
-                                peticion[21] = (byte)int.Parse(tb_Registro5.Text.Substring(0, 2), System.Globalization.NumberStyles.HexNumber);
-                                peticion[22] = (byte)int.Parse(tb_Registro5.Text.Substring(2, 2), System.Globalization.NumberStyles.HexNumber);
+            //            if (num_Salidas > 3)
+            //            {
+            //                peticion[19] = (byte)int.Parse(tb_Registro4.Text.Substring(0, 2), System.Globalization.NumberStyles.HexNumber);
+            //                peticion[20] = (byte)int.Parse(tb_Registro4.Text.Substring(2, 2), System.Globalization.NumberStyles.HexNumber);
 
-                                if (num_Salidas > 5)
-                                {
-                                    peticion[23] = (byte)int.Parse(tb_Registro6.Text.Substring(0, 2), System.Globalization.NumberStyles.HexNumber);
-                                    peticion[24] = (byte)int.Parse(tb_Registro6.Text.Substring(2, 2), System.Globalization.NumberStyles.HexNumber);
+            //                if (num_Salidas > 4)
+            //                {
+            //                    peticion[21] = (byte)int.Parse(tb_Registro5.Text.Substring(0, 2), System.Globalization.NumberStyles.HexNumber);
+            //                    peticion[22] = (byte)int.Parse(tb_Registro5.Text.Substring(2, 2), System.Globalization.NumberStyles.HexNumber);
 
-                                    if (num_Salidas > 6)
-                                    {
-                                        peticion[25] = (byte)int.Parse(tb_Registro7.Text.Substring(0, 2), System.Globalization.NumberStyles.HexNumber);
-                                        peticion[26] = (byte)int.Parse(tb_Registro7.Text.Substring(2, 2), System.Globalization.NumberStyles.HexNumber);
+            //                    if (num_Salidas > 5)
+            //                    {
+            //                        peticion[23] = (byte)int.Parse(tb_Registro6.Text.Substring(0, 2), System.Globalization.NumberStyles.HexNumber);
+            //                        peticion[24] = (byte)int.Parse(tb_Registro6.Text.Substring(2, 2), System.Globalization.NumberStyles.HexNumber);
 
-                                        if (num_Salidas > 7)
-                                        {
-                                            peticion[27] = (byte)int.Parse(tb_Registro1.Text.Substring(0, 2), System.Globalization.NumberStyles.HexNumber);
-                                            peticion[28] = (byte)int.Parse(tb_Registro1.Text.Substring(2, 2), System.Globalization.NumberStyles.HexNumber);
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
+            //                        if (num_Salidas > 6)
+            //                        {
+            //                            peticion[25] = (byte)int.Parse(tb_Registro7.Text.Substring(0, 2), System.Globalization.NumberStyles.HexNumber);
+            //                            peticion[26] = (byte)int.Parse(tb_Registro7.Text.Substring(2, 2), System.Globalization.NumberStyles.HexNumber);
+
+            //                            if (num_Salidas > 7)
+            //                            {
+            //                                peticion[27] = (byte)int.Parse(tb_Registro1.Text.Substring(0, 2), System.Globalization.NumberStyles.HexNumber);
+            //                                peticion[28] = (byte)int.Parse(tb_Registro1.Text.Substring(2, 2), System.Globalization.NumberStyles.HexNumber);
+            //                            }
+            //                        }
+            //                    }
+            //                }
+            //            }
+            //        }
+            //    }
+            //}
+
+            Array.Copy(parte_func16, 0, peticion, 13, nBytesSalidas);
 
             if (seguro)
                 res = clienteTLS.enviaDatos(peticion, peticion.Length);

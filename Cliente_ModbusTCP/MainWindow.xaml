@@ -154,5 +154,8 @@
             </Menu>
         </StackPanel>
 
+        <Label x:Name="lb_parte_func16" Content="Hola" HorizontalAlignment="Left" Margin="380,270,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tb_parte_func16" HorizontalAlignment="Left" Margin="457,274,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" KeyDown="tb_parte_func16_KeyDown"/>
+
     </Grid>
 </Window>
