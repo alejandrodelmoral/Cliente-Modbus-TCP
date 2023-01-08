@@ -880,10 +880,12 @@ namespace Cliente_ModbusTCP
 
     }
 
+    /*-- Clase datosGrid --*/
     public class datosGrid
     {
         public int Elemento { get; set; }
         public bool Estado { get; set; }
     }
+    /*---------------------*/
 
 }
