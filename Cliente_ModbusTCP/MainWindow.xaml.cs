@@ -144,6 +144,8 @@ namespace Cliente_ModbusTCP
             rbtn_Dec.Visibility = Visibility.Hidden;
             rbtn_Hex.IsChecked = true;
             rbtn_Dec.IsChecked = false;
+            if (conectado)
+                btn_Peticion.IsEnabled = true;
 
             tb_PrimeraSalida.Text = "";
             tb_NumElementos.Text = "";
@@ -182,6 +184,8 @@ namespace Cliente_ModbusTCP
             rbtn_Dec.Visibility = Visibility.Hidden;
             rbtn_Hex.IsChecked = true;
             rbtn_Dec.IsChecked = false;
+            if (conectado)
+                btn_Peticion.IsEnabled = true;
 
             tb_PrimeraSalida.Text = "";
             tb_NumElementos.Text = "";
@@ -219,6 +223,8 @@ namespace Cliente_ModbusTCP
             rbtn_Dec.Visibility = Visibility.Hidden;
             rbtn_Hex.IsChecked = true;
             rbtn_Dec.IsChecked = false;
+            if (conectado)
+                btn_Peticion.IsEnabled = true;
 
             tb_PrimeraSalida.Text = "";
             tb_NumElementos.Text = "";
@@ -259,6 +265,8 @@ namespace Cliente_ModbusTCP
             rbtn_Dec.IsChecked = false;
             tb_parte_func16.Margin = new Thickness(500, 214, 0, 0);
             lb_AyudaParteFunc16.Margin = new Thickness(535, 211, 0, 0);
+            if (conectado)
+                btn_Peticion.IsEnabled = false;
 
             tb_PrimeraSalida.Text = "";
             tb_NumElementos.Text = "";
@@ -486,7 +494,11 @@ namespace Cliente_ModbusTCP
                     {
                         if (rbtn_Dec.IsChecked == true)
                         {
-                            parcial = BitConverter.GetBytes(int.Parse(tb_parte_func16.Text));
+                            if (int.Parse(tb_parte_func16.Text) > 65535)
+                                parcial = BitConverter.GetBytes(65535);
+                            else
+                                parcial = BitConverter.GetBytes(int.Parse(tb_parte_func16.Text));
+
                             Array.Reverse(parcial, 0, 2);
                             Array.Copy(parcial, 0, parte_func16, cont * 2, 2);
                         }
@@ -505,7 +517,7 @@ namespace Cliente_ModbusTCP
                 catch (Exception ex)
                 {
                     enter = false;
-                    MessageBox.Show("Debe indicar el valor que desea.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("Introduzca un valor válido.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
                 
 
@@ -517,6 +529,8 @@ namespace Cliente_ModbusTCP
                     tb_parte_func16.Width = 130;
                     lb_AyudaParteFunc16.Content = "";
                     tb_parte_func16.Text = "Pulse el botón Petición";
+                    if (conectado)
+                        btn_Peticion.IsEnabled = true;
                 }
             }
         }
